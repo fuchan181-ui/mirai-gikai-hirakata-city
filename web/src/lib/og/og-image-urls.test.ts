@@ -40,6 +40,6 @@ describe("ogImageUrls", () => {
   });
 
   it("サイト共通の画像URLを返す", () => {
-    expect(ogImageUrls.site(WEB_URL)).toBe("https://example.com/api/og/site");
+    expect(ogImageUrls.site(WEB_URL)).toBe("https://example.com/ogp.png");
   });
 });

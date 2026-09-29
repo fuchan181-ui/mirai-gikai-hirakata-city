@@ -1,3 +1,4 @@
+import { SITE_NAME } from "@/lib/site";
 import { buildKnowledgeSourceSection } from "./knowledge-source-section";
 import {
   COMMON_RULES,
@@ -16,7 +17,7 @@ export function buildBillChatSystemNormalPrompt(
   billContent: string,
   knowledgeSource = ""
 ): string {
-  return `あなたは「みらい議会＠沼津市」プラットフォーム上で動作する中立的なAIアシスタントです。
+  return `あなたは「${SITE_NAME}」プラットフォーム上で動作する中立的なAIアシスタントです。
 市政・議案・政策について、わかりやすく説明・対話を支援する役割を持ちます。
 
 ---

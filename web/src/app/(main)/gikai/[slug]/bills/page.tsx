@@ -6,6 +6,7 @@ import { getBillsByCouncilSession } from "@/features/bills/server/loaders/get-bi
 import { CouncilSessionBillList } from "@/features/council-sessions/client/components/council-session-bill-list";
 import { getCouncilSessionBySlug } from "@/features/council-sessions/server/loaders/get-council-session-by-slug";
 import { routes } from "@/lib/routes";
+import { SITE_NAME } from "@/lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -20,7 +21,7 @@ export async function generateMetadata({ params }: Props) {
   }
 
   return {
-    title: `${session.name}の議案一覧 | みらい議会＠沼津市`,
+    title: `${session.name}の議案一覧 | ${SITE_NAME}`,
     description: `${session.name}（${session.start_date}〜${session.end_date}）に提出された議案の一覧です。`,
   };
 }
@@ -36,17 +37,17 @@ export default async function CouncilSessionBillsPage({ params }: Props) {
   const bills = await getBillsByCouncilSession(session.id);
 
   return (
-    <div className="bg-mirai-surface-muted">
+    <div className="bg-background">
       {/* ヒーロー画像 */}
-      <div className="relative w-full h-[285px]">
+      <div className="w-full bg-[#fff5f7] border-b border-[#f5e3e7]">
         <Image
-          src="/img/archive-hero-7f3d06.png"
+          src="/img/archive-hero.png"
           alt={`${session.name}の議案一覧`}
-          fill
+          width={3680}
+          height={1152}
           priority
-          className="object-cover"
+          className="w-full h-auto block"
           sizes="100vw"
-          quality={85}
         />
       </div>
 

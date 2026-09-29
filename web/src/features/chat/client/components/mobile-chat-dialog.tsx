@@ -5,6 +5,7 @@ import { X } from "lucide-react";
 import type { CSSProperties, ReactNode, RefObject } from "react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { SITE_PROFILE } from "@/lib/site";
 
 export const CHAT_PANEL_RESPONSIVE_CLASSES =
   "md:bottom-4 md:right-4 md:left-auto md:w-[450px] md:rounded-2xl";
@@ -47,7 +48,7 @@ export function MobileChatDialog({
         <DialogPrimitive.Content
           aria-describedby={undefined}
           aria-modal="true"
-          className={`fixed inset-x-0 bottom-0 z-50 h-[80vh] bg-card shadow-md rounded-t-2xl flex flex-col outline-none ${CHAT_PANEL_RESPONSIVE_CLASSES}`}
+          className={`fixed inset-x-0 bottom-0 z-50 h-[80vh] bg-[#fff5f7] border border-[#f5e3e7] shadow-md rounded-t-2xl flex flex-col outline-none ${CHAT_PANEL_RESPONSIVE_CLASSES}`}
           style={style}
           onOpenAutoFocus={(event) => {
             event.preventDefault();
@@ -63,7 +64,7 @@ export function MobileChatDialog({
           }}
         >
           <DialogPrimitive.Title className="sr-only">
-            沼津市議会や議案についてAIに質問する
+            {SITE_PROFILE.jurisdiction.councilName}や議案についてAIに質問する
           </DialogPrimitive.Title>
           <DialogPrimitive.Close asChild>
             <Button

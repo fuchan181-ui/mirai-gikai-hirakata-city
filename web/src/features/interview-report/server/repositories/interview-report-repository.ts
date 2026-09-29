@@ -104,12 +104,13 @@ export async function findPublicReportsByBillId(
   );
 
   if (error) {
-    throw new Error(
+    console.error(
       `Failed to fetch public interview reports: ${error.message}`
     );
+    return [];
   }
 
-  return data;
+  return data ?? [];
 }
 
 /**
@@ -122,12 +123,13 @@ export async function countPublicReportsByStance(billId: string) {
   });
 
   if (error) {
-    throw new Error(
+    console.error(
       `Failed to count public reports by stance: ${error.message}`
     );
+    return [];
   }
 
-  return data;
+  return data ?? [];
 }
 
 /**

@@ -449,7 +449,7 @@ const opinionPatterns: SeedPattern[] = [
     role: "work_related",
     role_title: "飲食店経営者",
     role_description:
-      "沼津港の近くで飲食店を営む\n観光客と地元客が半々\n繁忙期は人手が足りない",
+      "枚方市駅の近くで飲食店を営む\n観光客と地元客が半々\n繁忙期は人手が足りない",
     opinions: [
       {
         title: "観光客が港の周辺だけで帰ってしまう",
@@ -642,7 +642,7 @@ export function createTopicAnalysisMessages(
     messages.push({
       interview_session_id: sessionId,
       role: "assistant",
-      content: `こんにちは。沼津市議会の議案「${billName}」について、率直なご意見をお聞かせください。まず、この予算案に賛成ですか？反対ですか？`,
+      content: `こんにちは。枚方市議会の議案「${billName}」について、率直なご意見をお聞かせください。まず、この予算案に賛成ですか？反対ですか？`,
     });
     messages.push({
       interview_session_id: sessionId,
@@ -764,7 +764,7 @@ const realisticConversation: Array<{
   {
     role: "assistant",
     content:
-      "こんにちは。沼津市の予算案について、率直なご意見をお聞かせください。まずは、賛成・反対・条件付きで賛成のどれに近いですか？",
+      "こんにちは。枚方市の予算案について、率直なご意見をお聞かせください。まずは、賛成・反対・条件付きで賛成のどれに近いですか？",
   },
   {
     role: "user",

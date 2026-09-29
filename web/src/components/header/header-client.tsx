@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { DifficultySelector } from "@/features/bill-difficulty/client/components/difficulty-selector";
 import type { DifficultyLevelEnum } from "@/features/bill-difficulty/shared/types";
@@ -9,11 +7,10 @@ import { InterviewHeaderActions } from "@/features/interview-session/client/comp
 import { sendDifficultyStateEvent } from "@/lib/analytics/preference-state-events";
 import { useOnPageView } from "@/lib/analytics/use-on-page-view";
 import { isInterviewPage, isMainPage } from "@/lib/page-layout-utils";
-import { routes } from "@/lib/routes";
 import { DesktopNavigation } from "./desktop-navigation";
 import { DisplaySettingsPopover } from "./display-settings";
 import { HamburgerMenu } from "./hamburger-menu";
-import { SiteTitle } from "./site-title";
+import { HeaderLogo } from "./logo";
 
 interface HeaderClientProps {
   difficultyLevel: DifficultyLevelEnum;
@@ -32,23 +29,14 @@ export function HeaderClient({ difficultyLevel }: HeaderClientProps) {
 
   return (
     <header className="px-3 fixed top-4 left-0 right-0 z-40 max-w-[1440px] mx-auto">
-      <div className="rounded-2xl bg-card shadow-sm mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        className="rounded-2xl bg-[#ffe3e9] shadow-sm mx-auto px-4 sm:px-6 lg:px-8"
+        style={{ backgroundColor: "#ffe3e9" }}
+      >
         <div className="flex h-16 items-center justify-between xl:grid xl:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
           {/* Logo / Site Title */}
           <div className="flex items-center">
-            <Link
-              href={routes.home()}
-              className="flex items-center space-x-2"
-              aria-label="ホーム"
-            >
-              <Image
-                src="/img/logo.svg"
-                alt="みらい議会＠沼津市"
-                width={36}
-                height={40}
-              />
-              <SiteTitle />
-            </Link>
+            <HeaderLogo />
           </div>
 
           <DesktopNavigation pathname={pathname} />

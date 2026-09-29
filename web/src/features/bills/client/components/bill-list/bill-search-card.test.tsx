@@ -85,8 +85,7 @@ describe("BillSearchCard", () => {
     expect(thumbnail).toBeInTheDocument();
   });
 
-  // 沼津版は議案ごとの写真を用意しないので、ほぼ全件がこの経路で表示される。
-  it("サムネイルが未設定なら分野タグのイラストを出す", () => {
+  it("サムネイルが未設定ならサムネイル画像を出さない", () => {
     const { container } = render(
       <BillSearchCard
         bill={createMockBill({
@@ -96,9 +95,7 @@ describe("BillSearchCard", () => {
       />
     );
 
-    expect(thumbnailSrc(container)).toContain(
-      "/img/bill-thumbnails/disaster.webp"
-    );
+    expect(container.querySelector("img")).not.toBeInTheDocument();
   });
 
   it("提出日があるときだけ日付を出す", () => {

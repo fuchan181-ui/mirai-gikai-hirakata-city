@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Container } from "@/components/layouts/container";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { routes } from "@/lib/routes";
+import { SITE_PROFILE } from "@/lib/site";
 import { buildFiscalYearView } from "../../shared/utils/build-fiscal-view";
 import { largestShareSentence } from "../../shared/utils/fiscal-comparison-display";
 import { formatFiscalYearWithGregorian } from "../../shared/utils/format-fiscal-year";
@@ -51,16 +52,16 @@ export async function FinancePage() {
             予算とその使われ方
           </h1>
           <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
-            沼津市の一般会計について、予算が何にいくら配分され、そのお金がどう使われたかを、公式資料をもとにまとめています。
+            {SITE_PROFILE.jurisdiction.name}の一般会計について、予算が何にいくら配分され、そのお金がどう使われたかを、公式資料をもとにまとめています。
           </p>
           <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
-            本サービスは沼津市および沼津市議会の公式サービスではありません。数字の出典と基準日を各ページに示しています。正式な内容は必ず公式資料をご確認ください。
+            本サービスは{SITE_PROFILE.jurisdiction.name}および{SITE_PROFILE.jurisdiction.councilName}の公式サービスではありません。数字の出典と基準日を各ページに示しています。正式な内容は必ず公式資料をご確認ください。
           </p>
         </header>
 
         {yearPreviews.length === 0 ? (
-          <p className="rounded-xl border bg-card p-5 text-sm text-muted-foreground shadow">
-            公開できる財政データはまだありません。
+          <p className="rounded-xl border border-[#f5e3e7] bg-[#fff5f7] p-5 text-sm text-muted-foreground shadow">
+            準備中です。
           </p>
         ) : (
           <section className="space-y-4" aria-labelledby="finance-years">
@@ -75,7 +76,7 @@ export async function FinancePage() {
                 <li key={entry.fiscalYear}>
                   <Link
                     href={routes.financeYear(entry.fiscalYear)}
-                    className="block rounded-xl border bg-card p-5 shadow transition-colors hover:border-primary-accent"
+                    className="block rounded-xl border border-[#f5e3e7] bg-[#fff5f7] p-5 shadow transition-colors hover:border-primary-accent"
                   >
                     <div className="flex items-center justify-between gap-4">
                       <h3 className="text-lg font-bold text-mirai-text">

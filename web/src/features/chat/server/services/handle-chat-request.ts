@@ -31,6 +31,7 @@ import { INTERVIEW_COLLECTION_ENABLED } from "@/features/interview-config/shared
 import { DEFAULT_CHAT_MODEL } from "@/lib/ai/models";
 import { requireOpenAiApiKey } from "@/lib/ai/openai-key";
 import { env } from "@/lib/env";
+import { SITE_NAME } from "@/lib/site";
 import {
   type CompiledPrompt,
   createPromptProvider,
@@ -314,7 +315,7 @@ function extractGatewayCost(event: {
 const INTERVIEW_AWARENESS_BASE = `
 
 ## AIインタビュー機能について
-みらい議会＠沼津市には「AIインタビュー」機能があります。これは議案ごとに提供される機能で、ユーザーがAIインタビュアーと対話形式で議案に対する意見や暮らしの実感を共有できる仕組みです。インタビュー結果は分析・レポート化され、議案の論点整理に活用されます。
+${SITE_NAME}には「AIインタビュー」機能があります。これは議案ごとに提供される機能で、ユーザーがAIインタビュアーと対話形式で議案に対する意見や暮らしの実感を共有できる仕組みです。インタビュー結果は分析・レポート化され、議案の論点整理に活用されます。
 `;
 
 const INTERVIEW_AWARENESS_PROMPT_BILL = `${INTERVIEW_AWARENESS_BASE}

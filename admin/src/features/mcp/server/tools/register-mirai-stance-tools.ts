@@ -16,7 +16,7 @@ export function registerMiraiStanceTools(server: McpServer): void {
     {
       title: "議案の賛否スタンスを取得",
       description:
-        "指定議案の賛否スタンス(mirai_stances)を返す。未設定なら stance=null。差分反映（既に同じ賛否が設定済みなら再提案・再反映しない）の判定に使う。※本家「みらい議会」由来の機能で、沼津市議会では運用していない（廃止予定）。",
+        "指定議案の賛否スタンス(mirai_stances)を返す。未設定なら stance=null。差分反映（既に同じ賛否が設定済みなら再提案・再反映しない）の判定に使う。※本家「みらい議会」由来の機能で、枚方市議会では運用していない（廃止予定）。",
       inputSchema: {
         billId: z.string().uuid(),
       },
@@ -35,7 +35,7 @@ export function registerMiraiStanceTools(server: McpServer): void {
     {
       title: "議案の賛否スタンスを設定",
       description:
-        "指定議案の賛否スタンス(mirai_stances)をupsertする（1議案につき1件）。既存スタンスがあれば type / comment を更新し、なければ新規作成する。type は for / against / neutral / conditional_for / conditional_against / considering / continued_deliberation のいずれか。※本家「みらい議会」由来の機能で、沼津市議会では運用していない（廃止予定）。",
+        "指定議案の賛否スタンス(mirai_stances)をupsertする（1議案につき1件）。既存スタンスがあれば type / comment を更新し、なければ新規作成する。type は for / against / neutral / conditional_for / conditional_against / considering / continued_deliberation のいずれか。※本家「みらい議会」由来の機能で、枚方市議会では運用していない（廃止予定）。",
       inputSchema: {
         billId: z.string().uuid(),
         ...stanceInputSchema.shape,

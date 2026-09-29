@@ -2,6 +2,7 @@
 
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+import { SITE_NAME, SITE_PROFILE } from "@/lib/site";
 import { SiteOgContent } from "./site-og-content";
 
 describe("SiteOgContent", () => {
@@ -15,7 +16,9 @@ describe("SiteOgContent", () => {
 
     expect(screen.getByText(/議案を知る.*探す.*審議を追う/)).toBeTruthy();
     expect(
-      screen.getByText("沼津市・沼津市議会の公式サービスではありません")
+      screen.getByText(
+        `${SITE_PROFILE.jurisdiction.name}・${SITE_PROFILE.jurisdiction.councilName}の公式サービスではありません`
+      )
     ).toBeTruthy();
     expect(screen.queryByText(/意見を届ける/)).toBeNull();
   });
@@ -28,7 +31,7 @@ describe("SiteOgContent", () => {
       />
     );
 
-    const preview = screen.getByAltText("みらい議会＠沼津市のモバイル表示");
+    const preview = screen.getByAltText(`${SITE_NAME}のモバイル表示`);
     const frame = screen.getByRole("img", { name: "スマートフォンフレーム" });
     expect(preview.compareDocumentPosition(frame)).toBe(
       Node.DOCUMENT_POSITION_FOLLOWING

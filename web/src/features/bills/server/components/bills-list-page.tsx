@@ -18,6 +18,7 @@ import { HomeChatClient } from "@/features/chat/client/components/home-chat-clie
 import { getCouncilSessionOptions } from "@/features/council-sessions/server/loaders/get-council-session-options";
 import { INTERVIEW_COLLECTION_ENABLED } from "@/features/interview-config/shared/constants";
 import { routes } from "@/lib/routes";
+import { SITE_PROFILE } from "@/lib/site";
 import { BillSearchCard } from "../../client/components/bill-list/bill-search-card";
 import { BillsPagination } from "../../client/components/bill-list/bills-pagination";
 import { BillsSessionSelect } from "../../client/components/bill-list/bills-session-select";
@@ -44,9 +45,6 @@ import { tagChipRowCount } from "../../shared/utils/tag-chip-row-count";
 import { getBillsListPage } from "../loaders/get-bills-list-page";
 import { getFeaturedTags } from "../loaders/get-featured-tags";
 
-/** 沼津市議会「本会議の報告」。掲載外の議案を含む審議結果が期ごとに並ぶ。 */
-const NUMAZU_GIKAI_REPORT_INDEX_URL =
-  "https://www.city.numazu.shizuoka.jp/shisei/g-shigiki/g-sigiki/annai/houkoku/index.htm";
 
 /**
  * 議案一覧（/bills）。見出しは「議案を検索する」。
@@ -250,16 +248,21 @@ export async function BillsListPage({
           </>
         )}
 
-        {/* 掲載外の議案は沼津市議会の公式ページに送る */}
+        {/* 掲載外の議案は議会の公式ページに送る */}
         <div className="mt-8 text-sm text-mirai-text-secondary">
           <Link
-            href={NUMAZU_GIKAI_REPORT_INDEX_URL}
+            href={
+              SITE_PROFILE.externalLinks.sourceTerms ??
+              SITE_PROFILE.externalLinks.councilOfficial
+            }
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 hover:opacity-80"
           >
-            沼津市議会に提出されたすべての議案は{" "}
-            <span className="underline">沼津市議会の本会議報告へ</span>
+            {SITE_PROFILE.jurisdiction.councilName}に提出されたすべての議案は{" "}
+            <span className="underline">
+              {SITE_PROFILE.jurisdiction.councilName}の議案情報へ
+            </span>
             <ExternalLink className="h-3 w-3" aria-hidden />
           </Link>
         </div>

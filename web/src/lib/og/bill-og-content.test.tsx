@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { SITE_PROFILE } from "@/lib/site";
 import { BillOgContent, type BillOgContentProps } from "./bill-og-content";
 
 const props: BillOgContentProps = {
@@ -16,15 +17,17 @@ describe("BillOgContent", () => {
 
     for (const text of [
       "みらい議会",
-      "＠沼津市",
-      "NUMAZU CITY COUNCIL GUIDE",
+      `＠${SITE_PROFILE.jurisdiction.name}`,
+      SITE_PROFILE.jurisdiction.name === "枚方市"
+        ? "HIRAKATA CITY COUNCIL GUIDE"
+        : "NUMAZU CITY COUNCIL GUIDE",
       "市営墓地の使用料を見直し",
       "市営墓地の使用料と管理料を改定する議案です",
       "可決",
       "議第63号",
       "2026.6.29 提出",
       "暮らし・まちづくり",
-      "沼津市・沼津市議会の公式サービスではありません",
+      `${SITE_PROFILE.jurisdiction.name}・${SITE_PROFILE.jurisdiction.councilName}の公式サービスではありません`,
       "data:image/png;base64,logo",
     ]) {
       expect(json).toContain(text);

@@ -11,8 +11,8 @@ import {
 import { routes } from "@/lib/routes";
 
 export const metadata: Metadata = {
-  title: "利用規約 | みらい議会＠沼津市",
-  description: "みらい議会＠沼津市の利用規約",
+  title: "利用規約 | みらい議会＠枚方市",
+  description: "みらい議会＠枚方市の利用規約",
 };
 
 export default function TermsPage() {
@@ -20,16 +20,16 @@ export default function TermsPage() {
     <LegalPageLayout
       title="利用規約"
       enLabel="Terms of Service"
-      description="みらい議会＠沼津市をご利用いただくにあたっての基本的なルールを定めています。"
+      description="みらい議会＠枚方市をご利用いただくにあたっての基本的なルールを定めています。"
       className="pt-24 md:pt-12"
     >
       <Container className="space-y-10">
         <LegalParagraph className="text-right">
-          最終更新日：2026年9月1日
+          最終更新日：2026年9月22日
         </LegalParagraph>
 
         <LegalParagraph>
-          みらい議会＠沼津市（以下「本サービス」といいます。）をご利用いただく場合、以下の規約に同意いただいたものとみなします。本規約において「当運営者」とは、本サービスを運営する者をいいます。なお、本サービスは沼津市および沼津市議会が運営する公式サービスではありません。
+          みらい議会＠枚方市（以下「本サービス」といいます。）をご利用いただく場合、以下の規約に同意いただいたものとみなします。本規約において「当運営者」とは、本サービスを運営するさち（個人運営、連絡先：<a href="https://x.com/huchanmaru" target="_blank" rel="noopener noreferrer" className="underline text-blue-600 hover:opacity-80">@huchanmaru</a>）をいいます。なお、本サービスは枚方市および枚方市議会が運営する公式サービスではありません。
         </LegalParagraph>
 
         <section className="space-y-4">
@@ -71,7 +71,7 @@ export default function TermsPage() {
                 "サーバへの過剰な負荷、システムへの妨害・侵入・解析（リバースエンジニアリング等）行為。",
                 "自動化ツール、ボット等による不正操作。",
                 "AIモデルの悪用：システムプロンプト等の内部設定の推測、プロンプトインジェクション等による意図的な誤動作の誘発。",
-                "目的外利用：本サービスの趣旨（沼津市議会に提出された議案等の関連テーマ）を著しく逸脱した応答を生成させる行為。",
+                "目的外利用：本サービスの趣旨（枚方市議会に提出された議案等の関連テーマ）を著しく逸脱した応答を生成させる行為。",
                 "なりすまし：他の人物や組織になりすまして本サービスを利用する行為。",
               ]}
             />
@@ -122,7 +122,7 @@ export default function TermsPage() {
                                 href={routes.interviewDataTerms()}
                                 className="text-primary-accent underline"
                               >
-                                みらい議会＠沼津市 AIインタビューデータ利用規約
+                                みらい議会＠枚方市 AIインタビューデータ利用規約
                               </Link>
                               」に同意する者であれば誰でもダウンロード可能なオープンデータとして第三者に提供すること
                             </>
@@ -193,7 +193,7 @@ export default function TermsPage() {
         <section className="space-y-4">
           <LegalSectionTitle>第8条（準拠法・管轄）</LegalSectionTitle>
           <LegalParagraph>
-            本規約は日本法に準拠し、本サービスに関連して生じる一切の紛争については、静岡地方裁判所沼津支部を第一審の専属的合意管轄裁判所とします。
+            本規約は日本法に準拠し、本サービスに関連して生じる一切の紛争については、大阪地方裁判所を第一審の専属的合意管轄裁判所とします。
           </LegalParagraph>
         </section>
       </Container>

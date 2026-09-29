@@ -9,6 +9,7 @@ import remarkRehype from "remark-rehype";
 import { unified } from "unified";
 import { LongPressSection } from "@/features/bills/client/components/bill-detail/long-press-section";
 import { DifficultyInfoCard } from "@/features/bills/server/components/bill-detail/difficulty-info-card";
+import { ENABLE_AI_CHAT } from "@/features/chat/shared/constants";
 import { rehypeEmbedYouTube } from "./rehype-embed-youtube";
 import { rehypeExternalLinks } from "./rehype-external-links";
 import { rehypeInjectElement } from "./rehype-inject-element";
@@ -47,10 +48,14 @@ export async function parseMarkdown(markdown: string): Promise<ReactElement> {
     .use(rehypeWrapSections)
     .use(rehypeInjectElement, {
       injections: [
-        {
-          targetH2Index: 3,
-          tagName: "LongPressSection",
-        },
+        ...(ENABLE_AI_CHAT
+          ? [
+              {
+                targetH2Index: 3,
+                tagName: "LongPressSection",
+              },
+            ]
+          : []),
         {
           targetH2Index: -1,
           tagName: "DifficultyInfoCard",

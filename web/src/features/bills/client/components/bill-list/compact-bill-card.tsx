@@ -20,7 +20,7 @@ export function CompactBillCard({ bill, className }: CompactBillCardProps) {
 
   return (
     <Card
-      className={`border border-foreground shadow-none hover:bg-muted/50 transition-colors overflow-hidden ${className ?? ""}`}
+      className={`border border-[#f5e3e7] bg-[#fff5f7] shadow-none hover:bg-[#ffeef2] transition-colors overflow-hidden ${className ?? ""}`}
     >
       <div className="flex">
         {/* コンテンツエリア */}
@@ -46,11 +46,13 @@ export function CompactBillCard({ bill, className }: CompactBillCardProps) {
         </div>
 
         {/* サムネイル画像 */}
-        <BillThumbnail
-          bill={bill}
-          className="w-24 h-16 flex-shrink-0 self-center mr-4 rounded-lg"
-          sizes="96px"
-        />
+        {bill.thumbnail_url && (
+          <BillThumbnail
+            bill={bill}
+            className="w-24 h-16 flex-shrink-0 self-center mr-4 rounded-lg"
+            sizes="96px"
+          />
+        )}
       </div>
     </Card>
   );

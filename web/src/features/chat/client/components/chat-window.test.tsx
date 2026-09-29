@@ -5,6 +5,7 @@ import userEvent from "@testing-library/user-event";
 import type { ComponentProps, FormEvent, ReactNode } from "react";
 import { forwardRef } from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { SITE_NAME } from "@/lib/site";
 import { ChatWindow } from "./chat-window";
 
 const testState = vi.hoisted(() => ({
@@ -183,11 +184,10 @@ describe("ChatWindow", () => {
     expect(dialog).toHaveStyle({ maxHeight: "640px" });
     expect(screen.getAllByRole("button", { name: /何|議案/ })).toHaveLength(3);
 
-    await user.click(
-      screen.getByRole("button", { name: "みらい議会＠沼津市って何？" })
-    );
+    const question = `${SITE_NAME}って何？`;
+    await user.click(screen.getByRole("button", { name: question }));
     expect(sendMessage).toHaveBeenCalledWith({
-      text: "みらい議会＠沼津市って何？",
+      text: question,
       metadata: {
         billContext: undefined,
         difficultyLevel: "normal",

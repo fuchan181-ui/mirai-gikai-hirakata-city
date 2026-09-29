@@ -8,6 +8,10 @@ export const numazuCityProfile = {
     name: "みらい議会＠沼津市",
     description:
       "沼津市議会でいま何が決まっているかを、わかりやすく伝えるプラットフォーム",
+    heroHeading: "大阪と京都の間、枚方。",
+    heroSubHeading:
+      "このまちのこれからを決める市議会の動きを、身近な言葉でお届けします。",
+    heroImageAlt: "夕暮れの海辺を表現した沼津の風景イメージ",
   },
   jurisdiction: {
     kind: "city",

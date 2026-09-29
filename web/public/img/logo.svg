@@ -1,7 +1,7 @@
-<svg width="40" height="44" viewBox="4 5 40 44" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="みらい議会＠沼津市">
-  <title>みらい議会＠沼津市</title>
+<svg width="40" height="44" viewBox="4 5 40 44" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="みらい議会＠枚方市">
+  <title>みらい議会＠枚方市</title>
   <!-- 富士山（平らな山頂と冠雪）を上辺にした吹き出し。中に駿河湾の波。沼津市議会の議論を伝えるサービスの独自ロゴ。scripts/generate-logo-assets.mjs で生成 -->
-  <path d="M8 24 L20 8 H28 L40 24 V33 a5 5 0 0 1 -5 5 H23 L12 46 V38 a4 4 0 0 1 -4 -5 Z" fill="#1b6ca8"/>
-  <path d="M20 8 H28 L32.9 14.5 L30.3 13.6 L27.2 16.8 L24 13.6 L20.8 16.8 L17.7 13.6 L15.1 14.5 Z" fill="#7fb2d4"/>
-  <path d="M14 28c2.5 0 2.5 2.4 5 2.4s2.5-2.4 5-2.4 2.5 2.4 5 2.4 2.5-2.4 5-2.4" stroke="#7fb2d4" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+  <path d="M8 24 L20 8 H28 L40 24 V33 a5 5 0 0 1 -5 5 H23 L12 46 V38 a4 4 0 0 1 -4 -5 Z" fill="#be3b63"/>
+  <path d="M20 8 H28 L32.9 14.5 L30.3 13.6 L27.2 16.8 L24 13.6 L20.8 16.8 L17.7 13.6 L15.1 14.5 Z" fill="#f4a8b9"/>
+  <path d="M14 28c2.5 0 2.5 2.4 5 2.4s2.5-2.4 5-2.4 2.5 2.4 5 2.4 2.5-2.4 5-2.4" stroke="#f4a8b9" stroke-width="2.4" stroke-linecap="round" fill="none"/>
 </svg>

@@ -3,6 +3,7 @@ import type { Route } from "next";
 import Link from "next/link";
 import { EXTERNAL_LINKS } from "@/config/external-links";
 import type { ComingSoonBill } from "@/features/bills/shared/types";
+import { SITE_NAME, SITE_PROFILE } from "@/lib/site";
 import { Card, CardContent } from "../ui/card";
 
 interface ComingSoonSectionProps {
@@ -21,13 +22,13 @@ export function ComingSoonSection({ bills }: ComingSoonSectionProps) {
           これから掲載される議案
         </h2>
         <p className="text-xs text-mirai-text-secondary">
-          みらい議会＠沼津市は、順次更新されていきます
+          {SITE_NAME}は、順次更新されていきます
         </p>
       </div>
 
       {/* Coming soonカードリスト */}
       {bills.length === 0 ? (
-        <Card>
+        <Card className="border border-[#f5e3e7] bg-[#fff5f7]">
           <CardContent className="flex items-center justify-center py-20">
             <p className="text-2xl font-bold text-mirai-text-muted">
               Coming soon
@@ -42,16 +43,18 @@ export function ComingSoonSection({ bills }: ComingSoonSectionProps) {
         </div>
       )}
 
-      {/* 沼津市議会の公式ページへのリンク */}
+      {/* 議会の公式ページへのリンク */}
       <div className="text-right text-sm text-mirai-text-secondary">
         <Link
-          href={EXTERNAL_LINKS.NUMAZU_COUNCIL as Route}
+          href={EXTERNAL_LINKS.COUNCIL_OFFICIAL as Route}
           target="_blank"
           rel="noopener noreferrer"
           className="hover:opacity-80 inline-flex items-center gap-1"
         >
-          沼津市議会に提出されているすべての議案は{" "}
-          <span className="underline">沼津市議会の公式ページへ</span>
+          {SITE_PROFILE.jurisdiction.councilName}に提出されているすべての議案は{" "}
+          <span className="underline">
+            {SITE_PROFILE.jurisdiction.councilName}の公式ページへ
+          </span>
           <ExternalLink className="h-3 w-3" />
         </Link>
       </div>
@@ -67,9 +70,9 @@ function ComingSoonBillCard({ bill }: { bill: ComingSoonBill }) {
 
   const content = (
     <Card
-      className={`border border-foreground ${
+      className={`border border-[#f5e3e7] bg-[#fff5f7] ${
         bill.source_url
-          ? "hover:bg-mirai-surface-gray transition-colors cursor-pointer"
+          ? "hover:bg-[#ffeef2] transition-colors cursor-pointer"
           : ""
       }`}
     >

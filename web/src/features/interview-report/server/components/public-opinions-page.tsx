@@ -54,12 +54,14 @@ export async function PublicOpinionsPage({
   return (
     <div className="min-h-dvh bg-mirai-surface">
       {/* ヒーロー画像 */}
-      <BillThumbnail
-        bill={bill}
-        className="w-full h-[200px] md:h-[320px]"
-        sizes="100vw"
-        priority
-      />
+      {bill.thumbnail_url && (
+        <BillThumbnail
+          bill={bill}
+          className="w-full h-[200px] md:h-[320px]"
+          sizes="100vw"
+          priority
+        />
+      )}
 
       <Container>
         {/* 議案タイトル（議案詳細へのリンク） */}

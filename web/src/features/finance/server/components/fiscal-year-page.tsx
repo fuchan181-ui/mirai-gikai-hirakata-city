@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Container } from "@/components/layouts/container";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { routes } from "@/lib/routes";
+import { SITE_PROFILE } from "@/lib/site";
 import { formatDateWithDots } from "@/lib/utils/date";
 import { buildFiscalYearView } from "../../shared/utils/build-fiscal-view";
 import {
@@ -42,7 +43,7 @@ export async function FiscalYearPage({ fiscalYear }: { fiscalYear: number }) {
             {formatFiscalYearWithGregorian(fiscalYear)}の予算と決算
           </h1>
           <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
-            沼津市の一般会計について、予算の内訳と、その予算がどう使われたかを公式資料からまとめています。本サービスは非公式であり、正式な内容は各公式資料をご確認ください。
+            {SITE_PROFILE.jurisdiction.name}の一般会計について、予算の内訳と、その予算がどう使われたかを公式資料からまとめています。本サービスは非公式であり、正式な内容は各公式資料をご確認ください。
           </p>
           <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
             金額は円単位です。構成比は合計額に対する割合を小数第1位まで四捨五入したもので、合計が100.0%にならないことがあります。

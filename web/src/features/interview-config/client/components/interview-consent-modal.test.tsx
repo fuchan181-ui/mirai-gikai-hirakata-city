@@ -3,6 +3,7 @@ import "@testing-library/jest-dom/vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
+import { SITE_NAME } from "@/lib/site";
 import { InterviewConsentModal } from "./interview-consent-modal";
 
 vi.mock("next/navigation", () => ({
@@ -22,7 +23,7 @@ describe("InterviewConsentModal", () => {
     ).toBeNull();
     expect(
       screen.queryByRole("link", {
-        name: "みらい議会＠沼津市 AIインタビューデータ利用規約",
+        name: `${SITE_NAME} AIインタビューデータ利用規約`,
       })
     ).toBeNull();
   });

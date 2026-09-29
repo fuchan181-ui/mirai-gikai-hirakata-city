@@ -3,13 +3,14 @@ import { checkRateLimit } from "@/features/open-data/server/utils/rate-limit-gua
 import { parsePaginationQuery } from "@/features/open-data/shared/utils/parse-pagination-query";
 import { jsonNoStore } from "@/lib/api/response";
 import { routes } from "@/lib/routes";
+import { SITE_NAME } from "@/lib/site";
 
 const LICENSE = "CC BY 4.0";
 
 /**
  * AIインタビューデータのオープンデータ取得API。
  *
- * - 「みらい議会＠沼津市 AIインタビューデータ利用規約」への同意表明
+ * - 「みらい議会＠枚方市 AIインタビューデータ利用規約」への同意表明
  *   （agreeToTerms=true）を必須とする
  * - 回答者が二次利用を許諾し（is_data_reuse_consented）、公開条件
  *   （管理者公開 × ユーザー公開 × 公開議案 × k-匿名性ゲート）を満たす
@@ -24,8 +25,7 @@ export async function GET(request: Request) {
   if (url.searchParams.get("agreeToTerms") !== "true") {
     return jsonNoStore(
       {
-        error:
-          "みらい議会＠沼津市 AIインタビューデータ利用規約に同意の上、agreeToTerms=true を指定してください",
+        error: `${SITE_NAME} AIインタビューデータ利用規約に同意の上、agreeToTerms=true を指定してください`,
         termsUrl,
       },
       403

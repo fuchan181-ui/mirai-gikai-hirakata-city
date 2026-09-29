@@ -53,7 +53,7 @@ export function InterviewChatInput({
     <>
       <PromptInput
         onSubmit={onSubmit}
-        className="flex items-end gap-2.5 py-1 pl-6 pr-4 bg-card rounded-[50px] border-mirai-gradient divide-y-0"
+        className="flex items-end gap-2.5 py-1 pl-6 pr-4 bg-[#fff0f5] rounded-[50px] border-mirai-gradient divide-y-0"
       >
         <PromptInputBody className="flex-1">
           <PromptInputTextarea
@@ -69,14 +69,14 @@ export function InterviewChatInput({
         <button
           type="submit"
           disabled={!input || isResponding}
-          className="flex-shrink-0 w-10 h-10 disabled:opacity-50"
+          className="flex-shrink-0 w-10 h-10 p-0 rounded-full transition-all hover:brightness-90 active:scale-95 disabled:opacity-50 overflow-hidden cursor-pointer"
         >
           <Image
             src="/icons/send-button-icon.svg"
             alt="送信"
             width={40}
             height={40}
-            className="w-full h-full"
+            className="w-full h-full transition-all"
           />
         </button>
       </PromptInput>

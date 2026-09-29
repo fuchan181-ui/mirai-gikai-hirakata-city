@@ -116,8 +116,7 @@ describe("CompactBillCard", () => {
     expect(screen.queryByText(DATE_LINE)).not.toBeInTheDocument();
   });
 
-  // 沼津版は議案ごとの写真を用意しないので、ほぼ全件がこの経路で表示される。
-  it("サムネイルが未設定なら分野タグのイラストを装飾として出す", () => {
+  it("サムネイルが未設定ならサムネイル画像を出さない", () => {
     const { container } = render(
       <CompactBillCard
         bill={createMockBill({
@@ -128,15 +127,7 @@ describe("CompactBillCard", () => {
       />
     );
 
-    expect(thumbnailSrc(container)).toContain(
-      "/img/bill-thumbnails/disaster.webp"
-    );
-    // 見出しが正式名称を読むので、画像には名前を付けない。
-    expect(
-      screen.queryByRole("img", {
-        name: "沼津市国民健康保険税条例の一部を改正する条例",
-      })
-    ).not.toBeInTheDocument();
+    expect(container.querySelector("img")).not.toBeInTheDocument();
   });
 
   it("アップロード済みのサムネイルはタグより優先し、同じく装飾として出す", () => {

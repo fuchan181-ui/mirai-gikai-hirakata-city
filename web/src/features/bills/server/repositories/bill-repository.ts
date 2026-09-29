@@ -201,10 +201,11 @@ export async function findBillDebatesByBillId(billId: string) {
     .order("speaker_name", { ascending: true });
 
   if (error) {
-    throw new Error(`Failed to fetch bill debates: ${error.message}`);
+    console.error(`Failed to fetch bill debates: ${error.message}`);
+    return [];
   }
 
-  return data;
+  return data ?? [];
 }
 
 /** 複数の議案から、本会議での討論記録がある議案IDだけを取得する。 */
@@ -222,7 +223,8 @@ export async function findBillIdsWithDebates(
     .in("bill_id", billIds);
 
   if (error) {
-    throw new Error(`Failed to fetch bill debate markers: ${error.message}`);
+    console.error(`Failed to fetch bill debate markers: ${error.message}`);
+    return new Set();
   }
 
   return new Set((data ?? []).map(({ bill_id }) => bill_id));

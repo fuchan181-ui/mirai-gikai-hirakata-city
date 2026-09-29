@@ -1,4 +1,4 @@
-import { SITE_NAME } from "@/lib/site";
+import { SITE_NAME, SITE_PROFILE } from "@/lib/site";
 import { OG_COLORS } from "./og-colors";
 
 const TITLE_MAX_HEIGHT = 2 * 46 * 1.35;
@@ -61,7 +61,7 @@ export function BillOgContent({
           >
             <span style={{ display: "flex" }}>みらい議会</span>
             <span style={{ display: "flex", color: OG_COLORS.primary }}>
-              ＠沼津市
+              {`＠${SITE_PROFILE.jurisdiction.name}`}
             </span>
           </div>
         </div>
@@ -73,7 +73,7 @@ export function BillOgContent({
             letterSpacing: "0.12em",
           }}
         >
-          NUMAZU CITY COUNCIL GUIDE
+          {`${SITE_PROFILE.jurisdiction.name === "枚方市" ? "HIRAKATA" : "NUMAZU"} CITY COUNCIL GUIDE`}
         </span>
       </div>
 
@@ -178,7 +178,7 @@ export function BillOgContent({
             color: OG_COLORS.textMuted,
           }}
         >
-          沼津市・沼津市議会の公式サービスではありません
+          {`${SITE_PROFILE.jurisdiction.name}・${SITE_PROFILE.jurisdiction.councilName}の公式サービスではありません`}
         </span>
       </div>
     </div>

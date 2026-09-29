@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import { getInterviewChatLink } from "@/features/interview-config/shared/utils/interview-links";
 import { routes } from "@/lib/routes";
+import { SITE_NAME } from "@/lib/site";
 
 interface InterviewConsentModalProps {
   open: boolean;
@@ -62,7 +63,8 @@ export function InterviewConsentModal({
             <li>回答データは議案の論点整理に利用します。</li>
             <li>個人情報や機密情報の記載はお控えください。</li>
             <li>
-              インタビュー回答後に公開を許可するかを選択できます。公開を許可した場合、のちにみらい議会＠沼津市に全文が掲載される場合があります。
+              インタビュー回答後に公開を許可するかを選択できます。公開を許可した場合、のちに
+              {SITE_NAME}に全文が掲載される場合があります。
             </li>
           </ul>
 

@@ -24,9 +24,10 @@ export const findPublicReportingScopeId = cache(
       .maybeSingle();
 
     if (error) {
-      throw new Error(
-        `公開対象の集計範囲を取得できませんでした: ${error.message}`
+      console.warn(
+        `公開対象の集計範囲を取得できませんでした（財政データ未整備のため空表示にフォールバックします）: ${error.message}`
       );
+      return null;
     }
     return data?.id ?? null;
   }

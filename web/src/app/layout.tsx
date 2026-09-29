@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { env } from "@/lib/env";
 import { ogImageUrls } from "@/lib/og/og-image-urls";
-import { SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_PROFILE } from "@/lib/site";
 
 const notoSansJP = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
@@ -27,17 +27,15 @@ const notoSerifJP = Noto_Serif_JP({
   weight: ["500", "600"],
 });
 
-const isDev = process.env.NODE_ENV === "development";
-const isStaging = process.env.VERCEL_TARGET_ENV === "staging";
 const siteTitle = SITE_NAME;
 const siteDescription = SITE_DESCRIPTION;
 const siteName = SITE_NAME;
-// サービス名入りの画像を動的に描く。静的な1枚だと何のサイトか出ない
+// サイト全体のOGP画像（静的アイキャッチ画像 /ogp.png）
 const ogImage = {
   url: ogImageUrls.site(env.webUrl),
   width: 1200,
   height: 630,
-  alt: "みらい議会＠沼津市のOGPイメージ",
+  alt: `${SITE_NAME}のOGPイメージ`,
 };
 
 export const metadata: Metadata = {
@@ -46,8 +44,8 @@ export const metadata: Metadata = {
   description: siteDescription,
   keywords: [
     siteName,
-    "沼津市",
-    "沼津市議会",
+    SITE_PROFILE.jurisdiction.name,
+    SITE_PROFILE.jurisdiction.councilName,
     "議案",
     "市政",
     "条例",
@@ -55,14 +53,10 @@ export const metadata: Metadata = {
     "解説",
   ],
   icons: {
-    icon: isDev
-      ? "/icons/pwa/icon_dev_192_v3.png"
-      : isStaging
-        ? "/icons/pwa/icon_staging_192.png"
-        : "/icons/pwa/icon_android_192.png",
-    apple: isStaging
-      ? "/icons/pwa/icon_staging_ios.png"
-      : "/icons/pwa/icon_ios.png",
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    apple: "/favicon.png",
   },
   manifest: "/manifest.json",
   openGraph: {
@@ -94,8 +88,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#1b6ca8" },
-    { media: "(prefers-color-scheme: dark)", color: "#101820" },
+    { media: "(prefers-color-scheme: light)", color: "#be3b63" },
+    { media: "(prefers-color-scheme: dark)", color: "#181214" },
   ],
 };
 
@@ -115,7 +109,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <NextTopLoader showSpinner={false} color="#1b6ca8" />
+          <NextTopLoader showSpinner={false} color="#f4a8b9" />
           {children}
         </ThemeProvider>
       </body>

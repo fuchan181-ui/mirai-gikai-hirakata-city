@@ -39,12 +39,16 @@ export async function BillDetailHeader({
 
   return (
     <div className="mb-8 bg-card rounded-b-4xl">
-      <BillThumbnail
-        bill={bill}
-        className="w-full h-72 md:h-80"
-        sizes="(min-width: 896px) 896px, 100vw"
-        priority
-      />
+      {bill.thumbnail_url ? (
+        <BillThumbnail
+          bill={bill}
+          className="w-full h-72 md:h-80"
+          sizes="(min-width: 896px) 896px, 100vw"
+          priority
+        />
+      ) : (
+        <div className="w-full h-8" />
+      )}
 
       <div className="px-4 pt-8 mb-3">
         {displayTitle && (

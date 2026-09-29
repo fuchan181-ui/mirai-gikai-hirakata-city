@@ -1,4 +1,8 @@
-export const SITE_IDS = ["numazu-city", "shizuoka-pref"] as const;
+export const SITE_IDS = [
+  "numazu-city",
+  "shizuoka-pref",
+  "hirakata-city",
+] as const;
 
 export type SiteId = (typeof SITE_IDS)[number];
 
@@ -7,6 +11,9 @@ export type HttpsUrl = `https://${string}`;
 export type SiteBranding = Readonly<{
   name: string;
   description: string;
+  heroHeading?: string;
+  heroSubHeading?: string;
+  heroImageAlt?: string;
 }>;
 
 export type SiteJurisdiction = Readonly<{

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { GeneralQuestionsPage } from "@/features/general-questions/server/components/general-questions-page";
+import { SITE_NAME, SITE_PROFILE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "一般質問 | みらい議会＠沼津市",
-  description: "沼津市議会の一般質問を会期・開催日・質問項目から確認できます。",
+  title: `一般質問 | ${SITE_NAME}`,
+  description: `${SITE_PROFILE.jurisdiction.councilName}の一般質問を会期・開催日・質問項目から確認できます。`,
 };
 
 export default async function Page({

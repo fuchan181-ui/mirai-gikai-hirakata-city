@@ -73,9 +73,10 @@ export async function findPublishedFiscalYears(): Promise<number[]> {
   );
 
   if (result.error) {
-    throw new Error(
-      `公開済みの財政年度を取得できませんでした: ${result.error.message}`
+    console.warn(
+      `公開済みの財政年度を取得できませんでした（財政データ未整備のため空表示にフォールバックします）: ${result.error.message}`
     );
+    return [];
   }
 
   const years = new Set<number>();

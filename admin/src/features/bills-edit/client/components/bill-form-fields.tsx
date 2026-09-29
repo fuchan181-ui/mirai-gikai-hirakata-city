@@ -164,7 +164,7 @@ export function BillFormFields({
                 />
               </FormControl>
               <FormDescription>
-                沼津市議会の議案番号（議第・報第・認第・発議第）
+                枚方市議会の議案番号（議第・報第・認第・発議第）
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -292,11 +292,11 @@ export function BillFormFields({
               <Input
                 {...field}
                 value={field.value || ""}
-                placeholder="https://www.city.numazu.shizuoka.jp/shisei/g-shigiki/g-sigiki/..."
+                placeholder="https://www.city.hirakata.osaka.jp/..."
               />
             </FormControl>
             <FormDescription>
-              沼津市議会の議案ページURLを入力してください（「これから掲載される議案」表示時に外部リンクとして使用）
+              枚方市議会の議案ページURLを入力してください（「これから掲載される議案」表示時に外部リンクとして使用）
             </FormDescription>
             <FormMessage />
           </FormItem>

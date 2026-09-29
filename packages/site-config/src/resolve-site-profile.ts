@@ -6,7 +6,7 @@ import {
   type SiteProfile,
 } from "./types";
 
-export const DEFAULT_SITE_ID: SiteId = "numazu-city";
+export const DEFAULT_SITE_ID: SiteId = "hirakata-city";
 
 export function isSiteId(value: string): value is SiteId {
   return (SITE_IDS as readonly string[]).includes(value);

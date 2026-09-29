@@ -4,25 +4,32 @@ import type { Database } from "@mirai-gikai/supabase";
 export type AdminClient = ReturnType<typeof createAdminClient>;
 
 export function createAdminClient() {
-  return createClient<Database>(
-    process.env.SUPABASE_URL!,
-    process.env.SUPABASE_SECRET_KEY!
-  );
+  const serviceKey =
+    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SECRET_KEY;
+  if (!serviceKey) {
+    throw new Error(
+      "SUPABASE_SERVICE_ROLE_KEY or SUPABASE_SECRET_KEY must be set in environment variables"
+    );
+  }
+  return createClient<Database>(process.env.SUPABASE_URL!, serviceKey);
 }
 
-// シードが作るデータだけを消す。
-// 議案（bills）・会期（council_sessions）とその付随データは
-// 取り込み（@mirai-gikai/numazu-ingest）が入れるため、シードでは触らない。
-// ここに bills を含めると、取り込み済みの実データが `pnpm seed` で消える。
+// 依存関係（外部キー）順に子テーブルから親テーブルを削除する
 const TABLES_TO_CLEAR = [
   "interview_report",
   "interview_messages",
   "interview_sessions",
   "interview_questions",
   "interview_configs",
+  "faction_stances",
   "chats",
+  "bill_contents",
   "bills_tags",
+  "bills",
   "tags",
+  "factions",
+  "committees",
+  "council_sessions",
 ] as const;
 
 export async function clearAllData(supabase: AdminClient) {
@@ -37,3 +44,4 @@ export async function clearAllData(supabase: AdminClient) {
 
   console.log("✅ Cleared existing data");
 }
+

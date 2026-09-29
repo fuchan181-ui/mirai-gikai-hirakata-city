@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
+import { ENABLE_AI_CHAT } from "@/features/chat/shared/constants";
 import {
   isInterviewSection,
   isMainPage,
@@ -15,7 +16,7 @@ interface MainLayoutProps {
 
 export function MainLayout({ children }: MainLayoutProps) {
   const pathname = usePathname();
-  const useSidebarLayout = isMainPage(pathname);
+  const useSidebarLayout = ENABLE_AI_CHAT && isMainPage(pathname);
   const isInterview = isInterviewSection(pathname);
   const isWide = isWidePage(pathname);
 

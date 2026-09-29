@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { routes } from "@/lib/routes";
+import { SITE_NAME, SITE_PROFILE } from "@/lib/site";
 
 /**
  * デスクトップメニュー: ロゴ (画面左上)
@@ -12,10 +13,10 @@ export function DesktopMenuLogo() {
       className="fixed top-6 left-6 z-50 flex items-center gap-6 hover:opacity-90 transition-opacity"
     >
       {/* ロゴ */}
-      <div className="relative w-[100px] h-[110px]">
+      <div className="relative w-[100px] h-[100px]">
         <Image
-          src="/img/logo.svg"
-          alt="みらい議会＠沼津市ロゴ"
+          src="/img/logo.png"
+          alt={`${SITE_NAME}ロゴ`}
           fill
           className="object-contain"
           priority
@@ -32,7 +33,7 @@ export function DesktopMenuLogo() {
             letterSpacing: "0.1em",
           }}
         >
-          みらい議会＠沼津市
+          {SITE_NAME}
         </h1>
         <p
           className="font-bold text-foreground"
@@ -41,7 +42,7 @@ export function DesktopMenuLogo() {
             lineHeight: "2em",
           }}
         >
-          沼津市議会の議論をわかりやすく
+          {SITE_PROFILE.jurisdiction.councilName}の議論をわかりやすく
         </p>
       </div>
     </Link>

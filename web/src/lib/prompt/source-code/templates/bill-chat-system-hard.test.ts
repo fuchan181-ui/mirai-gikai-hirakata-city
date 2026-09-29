@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { SITE_NAME, SITE_PROFILE } from "@/lib/site";
 import { buildBillChatSystemHardPrompt } from "./bill-chat-system-hard";
 
 describe("buildBillChatSystemHardPrompt", () => {
@@ -23,11 +24,11 @@ describe("buildBillChatSystemHardPrompt", () => {
     expect(result).toContain("専門用語を正確に使用");
   });
 
-  it("沼津市議会とサービスの説明が含まれる", () => {
+  it("市議会とサービスの説明が含まれる", () => {
     const result = buildBillChatSystemHardPrompt("a", "b", "c", "d");
 
-    expect(result).toContain("みらい議会＠沼津市");
-    expect(result).toContain("沼津市議会");
+    expect(result).toContain(SITE_NAME);
+    expect(result).toContain(SITE_PROFILE.jurisdiction.councilName);
     expect(result).toContain("外部サイトのURLやリンク");
     expect(result).toContain("一切回答に含めないでください");
   });

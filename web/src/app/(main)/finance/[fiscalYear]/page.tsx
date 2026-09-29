@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { FiscalYearPage } from "@/features/finance/server/components/fiscal-year-page";
 import { formatFiscalYear } from "@/features/finance/shared/utils/format-fiscal-year";
+import { SITE_NAME, SITE_PROFILE } from "@/lib/site";
 
 export async function generateMetadata({
   params,
@@ -10,12 +11,12 @@ export async function generateMetadata({
   const { fiscalYear } = await params;
   const year = Number(fiscalYear);
   if (!Number.isInteger(year)) {
-    return { title: "財政 | みらい議会＠沼津市" };
+    return { title: `財政 | ${SITE_NAME}` };
   }
   const label = formatFiscalYear(year);
   return {
-    title: `${label}の予算と決算 | みらい議会＠沼津市`,
-    description: `沼津市の一般会計の${label}予算の内訳と、その予算がどう使われたかを公式資料からまとめて表示します。`,
+    title: `${label}の予算と決算 | ${SITE_NAME}`,
+    description: `${SITE_PROFILE.jurisdiction.name}の一般会計の${label}予算の内訳と、その予算がどう使われたかを公式資料からまとめて表示します。`,
   };
 }
 

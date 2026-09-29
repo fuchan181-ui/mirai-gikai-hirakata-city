@@ -1,5 +1,6 @@
 import { EXTERNAL_LINKS } from "@/config/external-links";
 import { routes } from "@/lib/routes";
+import { SITE_PROFILE } from "@/lib/site";
 
 export type FooterLink = {
   label: string;
@@ -31,8 +32,8 @@ export const primaryLinks: FooterLink[] = [
     href: routes.finance(),
   },
   {
-    label: "沼津市議会（市公式サイト）",
-    href: EXTERNAL_LINKS.NUMAZU_COUNCIL,
+    label: `${SITE_PROFILE.jurisdiction.councilName}（市公式サイト）`,
+    href: EXTERNAL_LINKS.COUNCIL_OFFICIAL,
     external: true,
   },
   {

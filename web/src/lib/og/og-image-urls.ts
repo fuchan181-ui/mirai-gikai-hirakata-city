@@ -26,6 +26,6 @@ export const ogImageUrls = {
   },
   /** サイト共通。トップや一覧など議案に紐づかないページ */
   site(webUrl: string): string {
-    return new URL("/api/og/site", webUrl).toString();
+    return new URL("/ogp.png", webUrl).toString();
   },
 };

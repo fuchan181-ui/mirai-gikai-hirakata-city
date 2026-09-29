@@ -28,7 +28,7 @@ export function buildThumbnailKeyPrompt(bill: ThumbnailKeyInput): string {
     .filter((line) => line !== null)
     .join("\n");
 
-  return `あなたは沼津市議会の議案に、内容を表す画像の題材を割り当てる担当です。
+  return `あなたは枚方市議会の議案に、内容を表す画像の題材を割り当てる担当です。
 次の議案に最も近い題材を、一覧から1つだけ選んでください。
 
 ## 題材の一覧（key: 名前 — 当てはまる議案）

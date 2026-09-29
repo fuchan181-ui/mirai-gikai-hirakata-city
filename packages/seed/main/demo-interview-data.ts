@@ -122,7 +122,7 @@ export function createInterviewSessions(
  * 対象議案は取り込む会期によって変わるため、議案名は冒頭で名指しするだけにとどめる。
  */
 function buildConversations(billName: string) {
-  const opening = `こんにちは。沼津市議会の議案「${billName}」について、率直なご意見をお聞かせください。この議案に賛成ですか？反対ですか？`;
+  const opening = `こんにちは。枚方市議会の議案「${billName}」について、率直なご意見をお聞かせください。この議案に賛成ですか？反対ですか？`;
   const askReason = "そう考える理由を教えてください。";
   const closing = "ありがとうございました。ご意見を承りました。";
 
@@ -507,7 +507,7 @@ export function createRoleDemoSessions(
     messages.push({
       interview_session_id: demo.sessionId,
       role: "assistant",
-      content: `こんにちは。沼津市議会の議案「${billName}」について、率直なご意見をお聞かせください。この議案について、どのようにお考えですか？`,
+      content: `こんにちは。枚方市議会の議案「${billName}」について、率直なご意見をお聞かせください。この議案について、どのようにお考えですか？`,
     });
     for (const turn of demo.turns) {
       messages.push({

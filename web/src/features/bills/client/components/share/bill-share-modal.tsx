@@ -9,6 +9,7 @@ import {
   shareOnThreads,
   shareOnTwitter,
 } from "@/features/bills/client/utils/share-handlers";
+import { SITE_PROFILE } from "@/lib/site";
 
 interface BillShareModalProps {
   isOpen: boolean;
@@ -103,7 +104,7 @@ export function BillShareModal({
         {/* シェアセクション */}
         <div className="flex flex-col items-center gap-4 w-full">
           <p className="text-base font-bold text-mirai-text text-center">
-            シェアして沼津市議会の議論をオープンに
+            シェアして{SITE_PROFILE.jurisdiction.councilName}の議論をオープンに
           </p>
 
           {/* SNSアイコン */}

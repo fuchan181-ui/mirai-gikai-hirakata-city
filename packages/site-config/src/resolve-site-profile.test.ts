@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { numazuCityProfile, shizuokaPrefProfile } from "./profiles";
+import {
+  hirakataCityProfile,
+  numazuCityProfile,
+  shizuokaPrefProfile,
+} from "./profiles";
 import {
   assertSiteProfileIsRuntimeReady,
   isSiteId,
@@ -10,6 +14,7 @@ describe("isSiteId", () => {
   it.each([
     "numazu-city",
     "shizuoka-pref",
+    "hirakata-city",
   ])("%s を既知の自治体IDとして扱う", (siteId) => {
     expect(isSiteId(siteId)).toBe(true);
   });
@@ -18,14 +23,34 @@ describe("isSiteId", () => {
     "",
     "numazu",
     "shizuoka-city",
+    "hirakata",
   ])("%s を未知の自治体IDとして拒否する", (siteId) => {
     expect(isSiteId(siteId)).toBe(false);
   });
 });
 
 describe("resolveSiteProfile", () => {
-  it("未設定の既存環境では沼津市版を選ぶ", () => {
-    expect(resolveSiteProfile(undefined)).toBe(numazuCityProfile);
+  it("未設定の既存環境では枚方市版を選ぶ", () => {
+    expect(resolveSiteProfile(undefined)).toBe(hirakataCityProfile);
+  });
+
+  it("hirakata-city では枚方市向けの表示値と外部リンクを返す", () => {
+    const profile = resolveSiteProfile("hirakata-city");
+
+    expect(profile.branding).toEqual({
+      name: "みらい議会＠枚方市",
+      description:
+        "枚方市議会でいま何が決まっているかを、わかりやすく伝えるプラットフォーム",
+    });
+    expect(profile.jurisdiction).toEqual({
+      kind: "city",
+      name: "枚方市",
+      councilName: "枚方市議会",
+    });
+    expect(profile.features).toEqual({ showComingSoonBills: false });
+    expect(profile.externalLinks.councilOfficial).toBe(
+      "https://www.city.hirakata.osaka.jp/0000011280.html"
+    );
   });
 
   it("numazu-city では従来の表示値と外部リンクを返す", () => {
@@ -50,7 +75,7 @@ describe("resolveSiteProfile", () => {
 
   it("未知の自治体IDをfail closedで拒否する", () => {
     expect(() => resolveSiteProfile("unknown-site")).toThrowError(
-      'Unsupported site id "unknown-site". Expected one of: numazu-city, shizuoka-pref.'
+      'Unsupported site id "unknown-site". Expected one of: numazu-city, shizuoka-pref, hirakata-city.'
     );
   });
 

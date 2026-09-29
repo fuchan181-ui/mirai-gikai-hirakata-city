@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { EXTERNAL_LINKS } from "@/config/external-links";
 import { isInterviewPage } from "@/lib/page-layout-utils";
 import { routes } from "@/lib/routes";
+import { SITE_NAME, SITE_PROFILE } from "@/lib/site";
 import { policyLinks, primaryLinks } from "./footer.config";
 
 export function Footer() {
@@ -17,7 +18,12 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-mirai-gradient text-mirai-footer-text">
+    <footer
+      className="bg-footer-gradient text-mirai-footer-text border-t border-[#f5e3e7]"
+      style={{
+        backgroundImage: "linear-gradient(180deg, #ffe3e9 0%, #fcfafb 100%)",
+      }}
+    >
       <div className="mx-auto flex w-full max-w-[500px] flex-col items-center px-6 py-14 pb-20 text-center">
         <FooterLogoSection />
         <FooterPrimaryLinks />
@@ -32,13 +38,13 @@ export function Footer() {
 function FooterLogoSection() {
   return (
     <div className="flex flex-col items-center text-center mb-9">
-      <Link href={routes.home()} aria-label="みらい議会＠沼津市 トップページ">
+      <Link href={routes.home()} aria-label={`${SITE_NAME} トップページ`}>
         <Image
-          src="/img/logo.svg"
-          alt="みらい議会＠沼津市"
+          src="/img/logo.png"
+          alt={SITE_NAME}
           width={120}
-          height={132}
-          className="h-auto"
+          height={120}
+          className="h-auto object-contain"
         />
       </Link>
     </div>
@@ -113,7 +119,8 @@ function FooterDisclaimer() {
         >
           みらい議会
         </Link>
-        を沼津市議会向けに改変した、有志による非公式サービスです。
+        を{SITE_PROFILE.jurisdiction.councilName}
+        向けに改変した、有志による非公式サービスです。
       </p>
     </div>
   );
@@ -122,7 +129,7 @@ function FooterDisclaimer() {
 function FooterCopyright() {
   return (
     <div className="text-center text-sm font-medium text-mirai-footer-text">
-      © 2026 みらい議会＠沼津市
+      © 2026 {SITE_NAME}
     </div>
   );
 }

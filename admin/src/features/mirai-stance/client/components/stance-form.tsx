@@ -107,7 +107,7 @@ export function StanceForm({ billId, stance, billStatus }: StanceFormProps) {
       <CardHeader>
         <CardTitle>議案の賛否スタンス</CardTitle>
         <p className="text-sm text-muted-foreground">
-          本家「みらい議会」由来の機能です。沼津市議会では運用しておらず、廃止予定です。
+          本家「みらい議会」由来の機能です。枚方市議会では運用しておらず、廃止予定です。
         </p>
         {isPreparing && (
           <p className="text-sm text-muted-foreground">

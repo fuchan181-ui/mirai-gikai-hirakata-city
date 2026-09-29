@@ -1,3 +1,4 @@
+import { SITE_NAME, SITE_PROFILE } from "@/lib/site";
 import { OG_COLORS } from "./og-colors";
 
 function BrandMessage({ logoDataUrl }: { logoDataUrl: string | null }) {
@@ -21,13 +22,14 @@ function BrandMessage({ logoDataUrl }: { logoDataUrl: string | null }) {
           marginBottom: 16,
         }}
       >
-        NUMAZU CITY COUNCIL GUIDE
+        {SITE_PROFILE.jurisdiction.name === "枚方市" ? "HIRAKATA" : "NUMAZU"}{" "}
+        CITY COUNCIL GUIDE
       </div>
       <div style={{ display: "flex", alignItems: "center" }}>
         {logoDataUrl && (
           // biome-ignore lint/performance/noImgElement: next/og は img 要素しか描画できない
           <img
-            alt="みらい議会＠沼津市のロゴ"
+            alt={`${SITE_NAME}のロゴ`}
             src={logoDataUrl}
             width={124}
             height={124}
@@ -45,7 +47,7 @@ function BrandMessage({ logoDataUrl }: { logoDataUrl: string | null }) {
         >
           <span style={{ display: "flex" }}>みらい議会</span>
           <span style={{ display: "flex", color: OG_COLORS.primary }}>
-            ＠沼津市
+            ＠{SITE_PROFILE.jurisdiction.name}
           </span>
         </div>
       </div>
@@ -60,7 +62,9 @@ function BrandMessage({ logoDataUrl }: { logoDataUrl: string | null }) {
           color: OG_COLORS.textSecondary,
         }}
       >
-        <span style={{ display: "flex" }}>沼津市議会の動きを、</span>
+        <span style={{ display: "flex" }}>
+          {SITE_PROFILE.jurisdiction.councilName}の動きを、
+        </span>
         <span style={{ display: "flex", color: OG_COLORS.primary }}>
           身近な言葉で。
         </span>
@@ -87,7 +91,8 @@ function BrandMessage({ logoDataUrl }: { logoDataUrl: string | null }) {
           color: OG_COLORS.textMuted,
         }}
       >
-        沼津市・沼津市議会の公式サービスではありません
+        {SITE_PROFILE.jurisdiction.name}・
+        {SITE_PROFILE.jurisdiction.councilName}の公式サービスではありません
       </div>
     </div>
   );
@@ -130,7 +135,7 @@ function SmartphonePreview({
         {screenshotDataUrl && (
           // biome-ignore lint/performance/noImgElement: next/og は img 要素しか描画できない
           <img
-            alt="みらい議会＠沼津市のモバイル表示"
+            alt={`${SITE_NAME}のモバイル表示`}
             src={screenshotDataUrl}
             width={339}
             height={719}

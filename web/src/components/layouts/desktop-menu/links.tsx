@@ -2,6 +2,7 @@ import type { Route } from "next";
 import Link from "next/link";
 import { EXTERNAL_LINKS } from "@/config/external-links";
 import { routes } from "@/lib/routes";
+import { SITE_NAME, SITE_PROFILE } from "@/lib/site";
 
 type FooterLinkItem = {
   label: string;
@@ -11,8 +12,8 @@ type FooterLinkItem = {
 
 const links: FooterLinkItem[] = [
   {
-    label: "沼津市議会（市公式サイト）",
-    href: EXTERNAL_LINKS.NUMAZU_COUNCIL,
+    label: `${SITE_PROFILE.jurisdiction.councilName}（市公式サイト）`,
+    href: EXTERNAL_LINKS.COUNCIL_OFFICIAL,
     external: true,
   },
   {
@@ -63,7 +64,7 @@ export function DesktopMenuLinks() {
           lineHeight: "1.48em",
         }}
       >
-        © 2026 みらい議会＠沼津市
+        © 2026 {SITE_NAME}
       </p>
     </div>
   );

@@ -9,12 +9,12 @@ import {
 import { env } from "@/lib/env";
 import { routes } from "@/lib/routes";
 
-const TERMS_TITLE = "みらい議会＠沼津市 AIインタビューデータ利用規約";
+const TERMS_TITLE = "みらい議会＠枚方市 AIインタビューデータ利用規約";
 
 export const metadata: Metadata = {
-  title: `${TERMS_TITLE} | みらい議会＠沼津市`,
+  title: `${TERMS_TITLE} | みらい議会＠枚方市`,
   description:
-    "みらい議会＠沼津市のAIインタビューデータをオープンデータとして利用するにあたっての条件を定めています。",
+    "みらい議会＠枚方市のAIインタビューデータをオープンデータとして利用するにあたっての条件を定めています。",
 };
 
 const CC_BY_LICENSE_URL = "https://creativecommons.org/licenses/by/4.0/deed.ja";
@@ -31,11 +31,11 @@ export default function InterviewDataTermsPage() {
     >
       <Container className="space-y-10">
         <LegalParagraph className="text-right">
-          最終更新日：2026年9月1日
+          最終更新日：2026年9月22日
         </LegalParagraph>
 
         <LegalParagraph>
-          本規約は、「みらい議会＠沼津市」（以下「本サービス」といいます。）の運営者（以下「当運営者」といいます。）が、本サービスのAIインタビュー機能（以下「AIインタビュー機能」といいます。）を通じて取得した回答内容に基づきオープンデータとして公開するデータセット（以下「本データ」といいます。）を、第三者（以下「利用者」といいます。）が利用するにあたっての条件を定めるものです。利用者は、本データをダウンロードまたは利用することにより、本規約に同意したものとみなされます。
+          本規約は、「みらい議会＠枚方市」（以下「本サービス」といいます。）の運営者・さち（以下「当運営者」といいます。）が、本サービスのAIインタビュー機能（以下「AIインタビュー機能」といいます。）を通じて取得した回答内容に基づきオープンデータとして公開するデータセット（以下「本データ」といいます。）を、第三者（以下「利用者」といいます。）が利用するにあたっての条件を定めるものです。利用者は、本データをダウンロードまたは利用することにより、本規約に同意したものとみなされます。
         </LegalParagraph>
 
         <section className="space-y-4">
@@ -96,7 +96,7 @@ export default function InterviewDataTermsPage() {
           </LegalParagraph>
           <LegalList
             items={[
-              "データ出典：「みらい議会＠沼津市 AIインタビュー」",
+              "データ出典：「みらい議会＠枚方市 AIインタビュー」",
               `データ提供元URL：${SITE_URL}`,
               `本規約のURL：${TERMS_URL}`,
               {
@@ -160,7 +160,7 @@ export default function InterviewDataTermsPage() {
         <section className="space-y-4">
           <LegalSectionTitle>第10条（準拠法・管轄）</LegalSectionTitle>
           <LegalParagraph>
-            本規約は日本法に準拠し、本データの利用に関連して生じる一切の紛争については、静岡地方裁判所沼津支部を第一審の専属的合意管轄裁判所とします。
+            本規約は日本法に準拠し、本データの利用に関連して生じる一切の紛争については、大阪地方裁判所を第一審の専属的合意管轄裁判所とします。
           </LegalParagraph>
         </section>
 

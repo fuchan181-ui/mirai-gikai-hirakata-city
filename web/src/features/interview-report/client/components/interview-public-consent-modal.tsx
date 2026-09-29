@@ -12,6 +12,7 @@ import {
   ConsentCheckListItem,
   OpenDataNoticeItem,
 } from "./consent-check-list-item";
+import { SITE_NAME } from "@/lib/site";
 
 interface InterviewPublicConsentModalProps {
   open: boolean;
@@ -48,7 +49,8 @@ export function InterviewPublicConsentModal({
 
           <div className="space-y-4">
             <ConsentCheckListItem>
-              公開を許可した場合、今後みらい議会＠沼津市にあなたのご意見の要約とインタビュー原文が匿名で掲載されることがあります。
+              公開を許可した場合、今後{SITE_NAME}
+              にあなたのご意見の要約とインタビュー原文が匿名で掲載されることがあります。
             </ConsentCheckListItem>
             <OpenDataNoticeItem />
             <ConsentCheckListItem>

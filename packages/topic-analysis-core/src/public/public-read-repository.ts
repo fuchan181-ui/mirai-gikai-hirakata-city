@@ -39,7 +39,15 @@ async function fetchAnalysisData(
     .eq("version_id", version.id)
     .order("sort_order", { ascending: true });
   if (topicsError) {
-    throw new Error(`Failed to fetch topics: ${topicsError.message}`);
+    console.error(`Failed to fetch topics: ${topicsError.message}`);
+    return {
+      meta: {
+        bill_id: billId,
+        version: version.version,
+        generated_at: version.completed_at,
+      },
+      rawTopics: [],
+    };
   }
 
   const rawTopics: RawTopicRow[] = (topics ?? []).map((t) => {
@@ -111,7 +119,8 @@ export async function findPublishedAnalysis(
     .eq("is_published", true)
     .maybeSingle();
   if (error) {
-    throw new Error(`Failed to fetch published version: ${error.message}`);
+    console.error(`Failed to fetch published version: ${error.message}`);
+    return null;
   }
   if (!version) return null;
   return fetchAnalysisData(version, billId);
@@ -133,7 +142,8 @@ export async function findLatestAnalysis(
     .limit(1)
     .maybeSingle();
   if (error) {
-    throw new Error(`Failed to fetch latest version: ${error.message}`);
+    console.error(`Failed to fetch latest version: ${error.message}`);
+    return null;
   }
   if (!version) return null;
   return fetchAnalysisData(version, billId);
@@ -182,7 +192,8 @@ export async function findRespondentRows(
   }
   const { data, error } = await query.order("created_at", { ascending: false });
   if (error) {
-    throw new Error(`Failed to fetch bill respondents: ${error.message}`);
+    console.error(`Failed to fetch bill respondents: ${error.message}`);
+    return [];
   }
 
   return (data ?? []).map((r) => ({

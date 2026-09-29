@@ -15,6 +15,7 @@ import type { UserReportsResult } from "@/features/interview-report/server/loade
 import { InterviewStatusBadge } from "@/features/interview-session/client/components/interview-status-badge";
 import { NewInterviewButton } from "@/features/interview-session/client/components/new-interview-button";
 import type { LatestInterviewSession } from "@/features/interview-session/server/loaders/get-latest-interview-session";
+import { SITE_NAME, SITE_PROFILE } from "@/lib/site";
 import type { InterviewConfig } from "../../server/loaders/get-interview-config";
 import { InterviewActionButtons } from "./interview-action-buttons";
 
@@ -49,6 +50,10 @@ const FEATURES: {
 ];
 
 function _InterviewLPHeader({ bill }: { bill: BillWithContent }) {
+  if (!bill.thumbnail_url) {
+    return null;
+  }
+
   return (
     <BillThumbnail
       bill={bill}
@@ -142,7 +147,7 @@ function _InterviewOverviewSection({
       </h2>
       <div className="space-y-4 text-[15px] font-normal text-foreground leading-[1.87]">
         <p>
-          沼津市議会で審議されている
+          {SITE_PROFILE.jurisdiction.councilName}で審議されている
           <Link
             href={billLink as Route}
             className="text-primary underline underline-offset-2 hover:opacity-70 transition-opacity"
@@ -152,7 +157,8 @@ function _InterviewOverviewSection({
           について、AIがあなたの考えを深掘りするチャット型インタビューです
         </p>
         <p>
-          いただいたご意見は、議案の論点整理に活用し、みらい議会＠沼津市上に公開される可能性があります。
+          いただいたご意見は、議案の論点整理に活用し、{SITE_NAME}
+          上に公開される可能性があります。
         </p>
       </div>
       <div>

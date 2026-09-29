@@ -1,4 +1,5 @@
 import { ExternalLink } from "lucide-react";
+import { SITE_PROFILE } from "@/lib/site";
 import type { BillDebate } from "../../../shared/types";
 
 interface BillDebatesSectionProps {
@@ -28,7 +29,7 @@ export function BillDebatesSection({ debates }: BillDebatesSectionProps) {
           本会議での討論
         </h2>
         <p className="text-sm leading-relaxed text-mirai-text-secondary">
-          この議案について行われた賛成・反対討論です。発言内容は沼津市議会の公式な会議録・議会中継で確認できます。
+          この議案について行われた賛成・反対討論です。発言内容は{SITE_PROFILE.jurisdiction.councilName}の公式な会議録・議会中継で確認できます。
         </p>
       </div>
 

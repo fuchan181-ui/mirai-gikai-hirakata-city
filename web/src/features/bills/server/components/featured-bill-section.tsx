@@ -1,6 +1,7 @@
 import type { Route } from "next";
 import Link from "next/link";
 import { routes } from "@/lib/routes";
+import { SITE_PROFILE } from "@/lib/site";
 import { BillCard } from "../../client/components/bill-list/bill-card";
 import type { BillWithContent } from "../../shared/types";
 
@@ -21,7 +22,7 @@ export function FeaturedBillSection({ bills }: FeaturedBillSectionProps) {
           注目の議案🔥
         </h2>
         <p className="text-xs font-medium text-mirai-text-secondary leading-[1.67]">
-          沼津市議会に提出された注目の議案
+          {SITE_PROFILE.jurisdiction.councilName}に提出された注目の議案
         </p>
       </div>
 

@@ -74,11 +74,13 @@ export function BillSearchCard({ bill }: { bill: BillListItem }) {
             )}
           </div>
 
-          <BillThumbnail
-            bill={bill}
-            className="h-16 w-24 shrink-0 self-start rounded-lg sm:h-[90px] sm:w-[120px]"
-            sizes="(min-width: 640px) 120px, 96px"
-          />
+          {bill.thumbnail_url && (
+            <BillThumbnail
+              bill={bill}
+              className="h-16 w-24 shrink-0 self-start rounded-lg sm:h-[90px] sm:w-[120px]"
+              sizes="(min-width: 640px) 120px, 96px"
+            />
+          )}
         </div>
 
         {hasBadges && (

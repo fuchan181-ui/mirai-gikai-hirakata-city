@@ -12,7 +12,7 @@ vi.mock("next-themes", () => ({
 }));
 
 beforeEach(() => {
-  document.head.innerHTML = '<meta name="theme-color" content="#1b6ca8">';
+  document.head.innerHTML = '<meta name="theme-color" content="#be3b63">';
 });
 
 describe("ThemeProvider", () => {
@@ -25,7 +25,7 @@ describe("ThemeProvider", () => {
       expect(
         document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')
           ?.content
-      ).toBe("#101820");
+      ).toBe("#181214");
     });
   });
 });

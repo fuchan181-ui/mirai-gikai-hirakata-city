@@ -65,24 +65,24 @@
   --color-mirai-text-subtle: #666666;
   --color-mirai-text-close: #9f9b9b;
 
-  /* Surface / Background */
-  --color-mirai-surface: #f7f4f0;
-  --color-mirai-surface-light: #eeeeee;
-  --color-mirai-surface-grouped: #f2f2f7;
-  --color-mirai-surface-muted: #e5e5ea;
-  --color-mirai-surface-tag: #e8e8e8;
-  --color-mirai-surface-warm: #eae6dd;
-  --color-mirai-surface-gray: #f6f6f6;
+  /* Surface / Background: 枚方市版 桜ミルクのような極淡いパステルピンク */
+  --color-mirai-surface: #fffafb;
+  --color-mirai-surface-light: #fff5f7;
+  --color-mirai-surface-grouped: #fff3f5;
+  --color-mirai-surface-muted: #fff5f7;
+  --color-mirai-surface-tag: #fceef1;
+  --color-mirai-surface-warm: #fff5f6;
+  --color-mirai-surface-gray: #fffafb;
 
   /* Border */
-  --color-mirai-border: #d2d2d2;
-  --color-mirai-border-light: #b1b1b1;
-  --color-mirai-border-muted: #bebcbc;
+  --color-mirai-border: #f5e3e7;
+  --color-mirai-border-light: #faedf0;
+  --color-mirai-border-muted: #eed5da;
 
-  /* Stance semantic colors */
-  --color-stance-for-bg: #eef5fb;
-  --color-stance-for-badge-start: #e3eef7;
-  --color-stance-for-badge-end: #f3f0e7;
+  /* Stance semantic colors: 枚方市版 やさしい極淡いピンク基調 */
+  --color-stance-for-bg: #fff2f5;
+  --color-stance-for-badge-start: #fde8ed;
+  --color-stance-for-badge-end: #fff8fa;
   --color-stance-against: #c9272a;
   --color-stance-against-light: #c9272a;
   --color-stance-against-bg: #fff1f1;
@@ -98,7 +98,7 @@
   --color-mirai-star: #ff9500;
   --color-mirai-highlight: #f4ff5f;
   --color-mirai-badge-yellow: #fffd96;
-  --color-mirai-info-blue: #b2d3e8;
+  --color-mirai-info-blue: #fce4eb;
   --color-mirai-warning-text: #6b4f00;
   --color-mirai-warning-surface: #fff9db;
   --color-mirai-warning-border: #9a7200;
@@ -107,29 +107,29 @@
   --color-mirai-footer-text: #1f2937;
 
   /* Progress */
-  --color-mirai-progress-track: #d9d9d9;
-  --color-mirai-progress-fill: #cfe4f2;
+  --color-mirai-progress-track: #faedf0;
+  --color-mirai-progress-fill: #f8cdd6;
 
   /* Gradient endpoints */
-  /* 駿河湾の海面から空へ。本家のティール系グラデーションから離す */
-  --color-mirai-gradient-start: #5aa9d6;
-  --color-mirai-gradient-end: #cfe4f2;
+  /* 枚方市版：やさしい薄いピンク基調のグラデーション */
+  --color-mirai-gradient-start: #f4a8b9;
+  --color-mirai-gradient-end: #fcecee;
 
-  /* 強調に使う面の色。駿河湾の青を薄く敷く */
-  --color-mirai-surface-accent: #e8f1f8;
+  /* 強調に使う面の色。極淡い桜ミルク色 */
+  --color-mirai-surface-accent: #fff5f7;
 
-  /* 薄いグラデーション（ピル・カード・吹き出し）。海から砂浜へ */
-  --color-mirai-light-gradient-start: #e3eef7;
-  --color-mirai-light-gradient-end: #f3f0e7;
+  /* 薄いグラデーション（ピル・カード・吹き出し） */
+  --color-mirai-light-gradient-start: #fff5f7;
+  --color-mirai-light-gradient-end: #fffafb;
 
   /* Topic analysis */
-  --color-topic-info-bg: #e8f1f8;
-  --color-topic-chip-bg: #f1f1f1;
+  --color-topic-info-bg: #fdf0f3;
+  --color-topic-chip-bg: #faebed;
   --color-topic-count: #6b7775;
   --color-topic-label: #6f6f74;
   --color-topic-affected: #c8642a;
-  --color-topic-industry: #2563a8;
-  --color-topic-expert: #14507c;
+  --color-topic-industry: #be3b63;
+  --color-topic-expert: #a83e5c;
   --color-topic-citizen: #909090;
 }
 
@@ -143,99 +143,99 @@
 :root {
   color-scheme: light;
   --radius: 0.625rem;
-  --background: #f7f4ee;
+  --background: #fffafb;
   --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
+  --card: #ffffff;
   --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
+  --popover: #ffffff;
   --popover-foreground: oklch(0.145 0 0);
-  /* 駿河湾・富士山の青。本家のティールグリーンから明確に離す */
-  --primary: #1b6ca8;
-  --primary-accent: #14507c;
+  /* 枚方市版：やさしい薄いピンク基調（WCAG 2.2 AA 4.5:1 適合） */
+  --primary: #be3b63;
+  --primary-accent: #a83e5c;
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
+  --secondary: #fff5f7;
   --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
+  --muted: #fff3f5;
   --muted-foreground: #6f6f74;
-  --accent: oklch(0.97 0 0);
+  --accent: #fff5f7;
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: #faedf0;
+  --input: #faedf0;
+  --ring: #f4a8b9;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
+  --sidebar: #fffafb;
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent: #fff5f7;
   --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-border: #faedf0;
+  --sidebar-ring: #f4a8b9;
   --leading-relaxed: 1.875;
 }
 
 .dark {
   color-scheme: dark;
-  --background: #101820;
-  --foreground: #f5f7fa;
-  --card: #1b2633;
-  --card-foreground: #f5f7fa;
-  --popover: #1b2633;
-  --popover-foreground: #f5f7fa;
-  --primary: #62b5e5;
-  --primary-accent: #8bcff2;
-  --primary-foreground: #102534;
-  --secondary: #263442;
-  --secondary-foreground: #f5f7fa;
-  --muted: #263442;
-  --muted-foreground: #bcc7d1;
-  --accent: #304354;
-  --accent-foreground: #f5f7fa;
+  --background: #181214;
+  --foreground: #fcf5f7;
+  --card: #251b1f;
+  --card-foreground: #fcf5f7;
+  --popover: #251b1f;
+  --popover-foreground: #fcf5f7;
+  --primary: #e57399;
+  --primary-accent: #f09bb5;
+  --primary-foreground: #2b0b14;
+  --secondary: #332328;
+  --secondary-foreground: #fcf5f7;
+  --muted: #332328;
+  --muted-foreground: #d1bcc2;
+  --accent: #3d2830;
+  --accent-foreground: #fcf5f7;
   --destructive: #a92e38;
-  --border: #607285;
-  --input: #607285;
-  --ring: #8bcff2;
-  --chart-1: #62b5e5;
-  --chart-2: #63c7a6;
+  --border: #634b52;
+  --input: #634b52;
+  --ring: #f09bb5;
+  --chart-1: #e57399;
+  --chart-2: #e89580;
   --chart-3: #e3b75a;
   --chart-4: #b99be8;
   --chart-5: #ef879b;
-  --sidebar: #1b2633;
-  --sidebar-foreground: #f5f7fa;
-  --sidebar-primary: #62b5e5;
-  --sidebar-primary-foreground: #102534;
-  --sidebar-accent: #304354;
-  --sidebar-accent-foreground: #f5f7fa;
-  --sidebar-border: #607285;
-  --sidebar-ring: #8bcff2;
+  --sidebar: #251b1f;
+  --sidebar-foreground: #fcf5f7;
+  --sidebar-primary: #e57399;
+  --sidebar-primary-foreground: #2b0b14;
+  --sidebar-accent: #3d2830;
+  --sidebar-accent-foreground: #fcf5f7;
+  --sidebar-border: #634b52;
+  --sidebar-ring: #f09bb5;
 
   /* Mirai tokens: light values must never leak into the dark canvas. */
-  --color-gray-300: #768696;
-  --color-mirai-text: #f5f7fa;
-  --color-mirai-text-secondary: #e1e7ed;
-  --color-mirai-text-muted: #bcc7d1;
-  --color-mirai-text-placeholder: #aebbc7;
-  --color-mirai-text-note: #d5dde5;
-  --color-mirai-text-subtle: #c7d0da;
-  --color-mirai-text-close: #9ba9b7;
-  --color-mirai-surface: #151e27;
-  --color-mirai-surface-light: #101820;
-  --color-mirai-surface-grouped: #1d2935;
-  --color-mirai-surface-muted: #2b3947;
-  --color-mirai-surface-tag: #30404f;
-  --color-mirai-surface-warm: #2b2a27;
-  --color-mirai-surface-gray: #202c38;
-  --color-mirai-border: #607285;
-  --color-mirai-border-light: #6f7f8f;
-  --color-mirai-border-muted: #5d6c7b;
-  --color-stance-for-bg: #17344a;
-  --color-stance-for-badge-start: #1d425c;
-  --color-stance-for-badge-end: #3b382e;
+  --color-gray-300: #8f7980;
+  --color-mirai-text: #fcf5f7;
+  --color-mirai-text-secondary: #edd5dc;
+  --color-mirai-text-muted: #d1bcc2;
+  --color-mirai-text-placeholder: #bba4aa;
+  --color-mirai-text-note: #e0cad0;
+  --color-mirai-text-subtle: #d3bec4;
+  --color-mirai-text-close: #ad969d;
+  --color-mirai-surface: #201518;
+  --color-mirai-surface-light: #181214;
+  --color-mirai-surface-grouped: #281b20;
+  --color-mirai-surface-muted: #38252b;
+  --color-mirai-surface-tag: #422b33;
+  --color-mirai-surface-warm: #2b2426;
+  --color-mirai-surface-gray: #24191d;
+  --color-mirai-border: #634b52;
+  --color-mirai-border-light: #7a5e66;
+  --color-mirai-border-muted: #543f45;
+  --color-stance-for-bg: #3d1c25;
+  --color-stance-for-badge-start: #4f2230;
+  --color-stance-for-badge-end: #3b222a;
   --color-stance-against: #ff8b91;
   --color-stance-against-light: #ff9ba0;
   --color-stance-against-bg: #402125;
@@ -246,28 +246,28 @@
   --color-mirai-star: #ffb347;
   --color-mirai-highlight: #5b641e;
   --color-mirai-badge-yellow: #5a5620;
-  --color-mirai-info-blue: #254d68;
+  --color-mirai-info-blue: #542231;
   --color-mirai-warning-text: #ffd978;
   --color-mirai-warning-surface: #3b3218;
   --color-mirai-warning-border: #c5a543;
   --color-mirai-success: #63c7a6;
-  --color-mirai-control-track: #607285;
-  --color-mirai-footer-text: #f5f7fa;
-  --color-mirai-progress-track: #43515f;
-  --color-mirai-progress-fill: #397298;
-  --color-mirai-gradient-start: #286a94;
-  --color-mirai-gradient-end: #365365;
-  --color-mirai-surface-accent: #1d3b50;
-  --color-mirai-light-gradient-start: #23465d;
-  --color-mirai-light-gradient-end: #3b392f;
-  --color-topic-info-bg: #1d3b50;
-  --color-topic-chip-bg: #2b3947;
-  --color-topic-count: #bac5cf;
-  --color-topic-label: #b2bdc8;
+  --color-mirai-control-track: #705860;
+  --color-mirai-footer-text: #fcf5f7;
+  --color-mirai-progress-track: #4d363d;
+  --color-mirai-progress-fill: #94385a;
+  --color-mirai-gradient-start: #94385a;
+  --color-mirai-gradient-end: #5e293b;
+  --color-mirai-surface-accent: #3d1c25;
+  --color-mirai-light-gradient-start: #47212e;
+  --color-mirai-light-gradient-end: #381e28;
+  --color-topic-info-bg: #3d1c25;
+  --color-topic-chip-bg: #38252b;
+  --color-topic-count: #d1bcc2;
+  --color-topic-label: #c2adb3;
   --color-topic-affected: #f29a66;
-  --color-topic-industry: #78b8ef;
-  --color-topic-expert: #8bcff2;
-  --color-topic-citizen: #b2bdc8;
+  --color-topic-industry: #f09bb5;
+  --color-topic-expert: #e57399;
+  --color-topic-citizen: #c2adb3;
 }
 
 @layer base {
@@ -344,6 +344,14 @@
       to bottom,
       var(--color-mirai-light-gradient-start),
       var(--color-mirai-light-gradient-end)
+    );
+  }
+
+  .bg-footer-gradient {
+    background-image: linear-gradient(
+      180deg,
+      #ffe3e9 0%,
+      #fcfafb 100%
     );
   }
 
@@ -429,6 +437,15 @@
 
 button {
   cursor: pointer;
+}
+
+/* ページ遷移ローディングバー（NextTopLoader / nprogress） */
+#nprogress .bar {
+  background: #f4a8b9 !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #f4a8b9, 0 0 5px #f4a8b9 !important;
 }
 
 /* スクロールは保持しつつスクロールバーを非表示にするユーティリティ。 */

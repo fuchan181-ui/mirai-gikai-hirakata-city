@@ -1,3 +1,5 @@
+import { SITE_PROFILE } from "@/lib/site";
+
 /**
  * ヘッダーのサービス名。
  *
@@ -21,7 +23,7 @@ export function SiteTitle() {
         みらい議会
       </span>
       <span className="text-[clamp(10px,3.3vw,15px)] text-primary-accent">
-        ＠沼津市
+        ＠{SITE_PROFILE.jurisdiction.name}
       </span>
     </span>
   );

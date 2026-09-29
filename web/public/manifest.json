@@ -1,13 +1,19 @@
 {
-  "name": "みらい議会＠沼津市",
-  "short_name": "みらい議会＠沼津",
-  "description": "沼津市議会でいま何が決まっているかを、わかりやすく伝えるプラットフォーム",
+  "name": "みらい議会＠枚方市",
+  "short_name": "みらい議会＠枚方",
+  "description": "枚方市議会でいま何が決まっているかを、わかりやすく伝えるプラットフォーム",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#F7F4F0",
-  "theme_color": "#1b6ca8",
+  "background_color": "#FBF8F7",
+  "theme_color": "#be3b63",
   "orientation": "portrait-primary",
   "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "500x500",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "/icons/pwa/icon_android_192.png",
       "sizes": "192x192",

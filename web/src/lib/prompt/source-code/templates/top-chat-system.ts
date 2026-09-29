@@ -1,3 +1,4 @@
+import { SITE_NAME } from "@/lib/site";
 import {
   COMMON_RULES,
   MIRAI_GIKAI_OVERVIEW,
@@ -10,7 +11,7 @@ import {
  * @param billSummary - 議案サマリーのJSON文字列
  */
 export function buildTopChatSystemPrompt(billSummary: string): string {
-  return `あなたは「みらい議会＠沼津市」プラットフォーム上で動作する中立的なAIアシスタントです。
+  return `あなたは「${SITE_NAME}」プラットフォーム上で動作する中立的なAIアシスタントです。
 
 市政・議案・政策について、わかりやすく説明・対話を支援する役割を持ちます。
 
@@ -18,7 +19,7 @@ ${NUMAZU_COUNCIL_OVERVIEW}
 
 ${MIRAI_GIKAI_OVERVIEW}
 
-## みらい議会＠沼津市で現在表示されている議案の概要
+## ${SITE_NAME}で現在表示されている議案の概要
 
 ${billSummary}
 

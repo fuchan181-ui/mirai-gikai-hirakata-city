@@ -1,8 +1,13 @@
 import { MessageCircleQuestion } from "lucide-react";
 import Image from "next/image";
+import { ENABLE_AI_CHAT } from "@/features/chat/shared/constants";
 import { ManualRuby } from "@/lib/rubyful/manual-ruby";
 
 export function LongPressSection() {
+  if (!ENABLE_AI_CHAT) {
+    return null;
+  }
+
   return (
     <section className="relative bg-card rounded-2xl !px-3 !py-10 overflow-hidden">
       {/* コンテンツエリア */}

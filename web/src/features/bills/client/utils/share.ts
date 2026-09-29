@@ -2,6 +2,7 @@ import { getDifficultyLevel } from "@/features/bill-difficulty/server/loaders/ge
 import type { DifficultyLevelEnum } from "@/features/bill-difficulty/shared/types";
 import { getBillOgVersion } from "@/features/bills/shared/utils/get-bill-og-version";
 import { ogImageUrls } from "@/lib/og/og-image-urls";
+import { SITE_PROFILE } from "@/lib/site";
 import { getOrigin } from "@/lib/utils/url";
 import type { BillWithContent } from "../../shared/types";
 
@@ -21,7 +22,7 @@ export function createBillShareUrl(
  */
 export function createShareMessage(bill: BillWithContent): string {
   const displayTitle = bill.bill_content?.title ?? bill.name;
-  return `${displayTitle} #みらい議会沼津市`;
+  return `${displayTitle} #みらい議会${SITE_PROFILE.jurisdiction.name}`;
 }
 
 /**

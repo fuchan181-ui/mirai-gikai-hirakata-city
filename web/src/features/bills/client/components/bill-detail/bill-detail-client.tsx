@@ -8,6 +8,7 @@ import {
   ChatButton,
   type ChatButtonRef,
 } from "@/features/chat/client/components/chat-button";
+import { ENABLE_AI_CHAT } from "@/features/chat/shared/constants";
 import type { BillWithContent } from "../../../shared/types";
 
 interface BillDetailClientProps {
@@ -36,6 +37,10 @@ export function BillDetailClient({
   const handleOpenChat = (selectedText: string) => {
     chatButtonRef.current?.openWithText(selectedText);
   };
+
+  if (!ENABLE_AI_CHAT) {
+    return <>{children}</>;
+  }
 
   return (
     <>

@@ -25,7 +25,7 @@ export async function CouncilSessionsPage() {
   const years = groupSessionsByYear(sessions);
 
   return (
-    <div className="bg-mirai-surface-muted min-h-dvh">
+    <div className="bg-background min-h-dvh">
       <Container className="pt-24 pb-8 md:pt-8 flex flex-col gap-8">
         <div className="flex flex-col gap-1">
           <h1>
@@ -82,7 +82,7 @@ function SessionRow({
   const billsSlug = hasBills ? session.slug : null;
 
   const body = (
-    <div className="flex items-center justify-between gap-4 rounded-xl border border-mirai-text bg-card px-4 py-3 group-hover:bg-muted/50 transition-colors">
+    <div className="flex items-center justify-between gap-4 rounded-xl border border-mirai-text bg-background px-4 py-3 group-hover:bg-muted/50 transition-colors">
       <div className="flex flex-col gap-1">
         <span className="font-bold text-[15px] leading-[1.6]">
           {session.name}

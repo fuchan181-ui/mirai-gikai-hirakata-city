@@ -1,6 +1,7 @@
 import "server-only";
 
 import { DEFAULT_INTERVIEW_CHAT_MODEL } from "@/lib/ai/models";
+import { SITE_NAME, SITE_PROFILE } from "@/lib/site";
 import { DisclosureBreadcrumb } from "../../shared/components/disclosure-breadcrumb";
 import type { InterviewConfig } from "../loaders/get-interview-config";
 
@@ -36,7 +37,9 @@ function StaticDisclosureSection() {
           <div>
             <p className="font-bold">1. 実施目的</p>
             <p className="mt-1">
-              本インタビューを通じて収集された回答データは、沼津市議会で審議される議案について論点を整理するための基礎資料として活用いたします。個人の意見を特定の偏り（バイアス）なく集約し、客観性の高い議論に役立てることを目的としています。
+              本インタビューを通じて収集された回答データは、
+              {SITE_PROFILE.jurisdiction.councilName}
+              で審議される議案について論点を整理するための基礎資料として活用いたします。個人の意見を特定の偏り（バイアス）なく集約し、客観性の高い議論に役立てることを目的としています。
             </p>
           </div>
 
@@ -79,7 +82,8 @@ function StaticDisclosureSection() {
                 </li>
                 <li>
                   <span className="font-bold">公開を希望する場合：</span>
-                  回答データは「みらい議会＠沼津市」上に掲載され、他のユーザーが閲覧可能な状態で公開されます。これにより、利用者間での意見の共有および議論の活性化を図ります。
+                  回答データは「{SITE_NAME}
+                  」上に掲載され、他のユーザーが閲覧可能な状態で公開されます。これにより、利用者間での意見の共有および議論の活性化を図ります。
                 </li>
               </ul>
             </div>

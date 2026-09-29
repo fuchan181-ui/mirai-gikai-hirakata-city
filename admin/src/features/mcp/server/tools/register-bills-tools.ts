@@ -32,7 +32,7 @@ export function registerBillsTools(server: McpServer): void {
     {
       title: "議案一覧を取得",
       description:
-        "みらい議会＠沼津市のadminに登録されている議案を返す。各議案にcouncil_session名も含む。publish_status / status でフィルタ可能。",
+        "みらい議会＠枚方市のadminに登録されている議案を返す。各議案にcouncil_session名も含む。publish_status / status でフィルタ可能。",
       inputSchema: {
         publish_status: z
           .enum(["draft", "published", "coming_soon"])

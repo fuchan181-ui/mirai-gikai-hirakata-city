@@ -133,7 +133,7 @@ export default async function Home() {
       </Container>
 
       <Container>
-        {/* みらい議会＠沼津市とは セクション */}
+        {/* みらい議会＠枚方市とは セクション */}
         <About />
 
         {/* 免責事項 */}

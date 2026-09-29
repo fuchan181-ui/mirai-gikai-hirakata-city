@@ -35,7 +35,7 @@ export function buildBillTagPrompt(
     .filter((line) => line !== null)
     .join("\n");
 
-  return `あなたは沼津市議会の議案を、市民生活に関わるテーマで分類する担当です。
+  return `あなたは枚方市議会の議案を、市民生活に関わるテーマで分類する担当です。
 次の議案に当てはまるタグを、候補から重要な順に1〜3件選んでください。
 
 ## タグ候補

@@ -2,6 +2,7 @@
 import "@testing-library/jest-dom/vitest";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
+import { SITE_PROFILE } from "@/lib/site";
 import { SiteTitle } from "./site-title";
 
 describe("SiteTitle", () => {
@@ -9,7 +10,9 @@ describe("SiteTitle", () => {
     render(<SiteTitle />);
 
     expect(screen.getByText("みらい議会")).toBeInTheDocument();
-    expect(screen.getByText("＠沼津市")).toBeInTheDocument();
+    expect(
+      screen.getByText(`＠${SITE_PROFILE.jurisdiction.name}`)
+    ).toBeInTheDocument();
   });
 
   it("画像ではなく文字で組む", () => {

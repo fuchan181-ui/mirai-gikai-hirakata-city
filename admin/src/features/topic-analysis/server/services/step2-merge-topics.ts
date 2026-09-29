@@ -19,7 +19,7 @@ export async function mergeTopics(
   const { object } = await generateObject({
     model: TOPIC_ANALYSIS_MODEL,
     schema: topicMergeSchema,
-    prompt: `あなたは沼津市議会の議案に関する市民意見のトピック整理を行います。
+    prompt: `あなたは枚方市議会の議案に関する市民意見のトピック整理を行います。
 
 ## 議案
 ${billTitle}

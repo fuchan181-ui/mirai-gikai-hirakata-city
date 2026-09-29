@@ -7,6 +7,7 @@ import { Container } from "@/components/layouts/container";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import { routes } from "@/lib/routes";
+import { SITE_PROFILE } from "@/lib/site";
 import { formatDate, formatDateTime } from "@/lib/utils/date";
 import { buildGeneralQuestionVisualization } from "../../shared/utils/build-general-question-visualization";
 import { getGeneralQuestionSessions } from "../loaders/get-general-question-sessions";
@@ -104,7 +105,7 @@ export async function GeneralQuestionsPage({ filters }: { filters: Filters }) {
         <header className="space-y-2">
           <h1 className="text-3xl font-bold text-mirai-text">一般質問</h1>
           <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
-            沼津市議会の一般質問を、開催日と質問項目から確認できます。本サービスは非公式であり、正式な内容は各公式資料をご確認ください。
+            {SITE_PROFILE.jurisdiction.councilName}の一般質問を、開催日と質問項目から確認できます。本サービスは非公式であり、正式な内容は各公式資料をご確認ください。
           </p>
           <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">
             質問項目の表示文は公式資料を基に生成AIで要約し、人手で原資料との照合・確認を行っています。

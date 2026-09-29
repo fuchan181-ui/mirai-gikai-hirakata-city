@@ -3,6 +3,7 @@ import "@testing-library/jest-dom/vitest";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { routes } from "@/lib/routes";
+import { SITE_NAME } from "@/lib/site";
 import {
   ConsentCheckListItem,
   OpenDataNoticeItem,
@@ -20,7 +21,7 @@ describe("OpenDataNoticeItem", () => {
     render(<OpenDataNoticeItem />);
 
     const link = screen.getByRole("link", {
-      name: "みらい議会＠沼津市 AIインタビューデータ利用規約",
+      name: `${SITE_NAME} AIインタビューデータ利用規約`,
     });
     expect(link).toHaveAttribute("href", routes.interviewDataTerms());
     expect(link).toHaveAttribute("target", "_blank");

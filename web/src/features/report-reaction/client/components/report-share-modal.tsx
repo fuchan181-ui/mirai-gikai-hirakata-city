@@ -10,6 +10,7 @@ import {
   shareOnTwitter,
 } from "@/features/bills/client/utils/share-handlers";
 import { OgpPreviewCard } from "./ogp-preview-card";
+import { SITE_NAME } from "@/lib/site";
 
 interface ReportShareModalProps {
   isOpen: boolean;
@@ -33,8 +34,8 @@ export function ReportShareModal({
   if (!isOpen) return null;
 
   const shareMessage = shareMessageProp
-    ? `みらい議会＠沼津市AIインタビュー「${shareMessageProp}」`
-    : `みらい議会＠沼津市AIインタビュー「${billName}」`;
+    ? `${SITE_NAME}AIインタビュー「${shareMessageProp}」`
+    : `${SITE_NAME}AIインタビュー「${billName}」`;
 
   const shareButtons = [
     {
