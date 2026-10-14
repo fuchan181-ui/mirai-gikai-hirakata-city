@@ -27,6 +27,10 @@ function requireEnv(name: string): string {
 /** secret key クライアント（RLS バイパス） */
 export const adminClient = createClient<Database>(SUPABASE_URL, SECRET_KEY);
 
+/** テストヘルパー内でのスキーマ差異・未生成テーブル対応用クライアント */
+// biome-ignore lint/suspicious/noExplicitAny: テスト環境やスキーマ差異によるテーブル型不整合を許容するため
+const rawAdminClient = adminClient as any;
+
 /** publishable key クライアント（RLS 適用） */
 export function getAnonClient() {
   return createClient<Database>(SUPABASE_URL, PUBLISHABLE_KEY);
@@ -107,8 +111,7 @@ export async function createTestCouncilSession(
     is_active: false,
     ...overrides,
   };
-  // biome-ignore lint/suspicious/noExplicitAny: Supabaseスキーマ差異を許容するため
-  const { data, error } = await (adminClient as any)
+  const { data, error } = await rawAdminClient
     .from("council_sessions")
     .insert(defaults)
     .select()
@@ -121,7 +124,7 @@ export async function createTestCouncilSession(
 export async function cleanupTestCouncilSession(
   sessionId: string
 ): Promise<void> {
-  await adminClient.from("council_sessions").delete().eq("id", sessionId);
+  await rawAdminClient.from("council_sessions").delete().eq("id", sessionId);
 }
 
 /** テスト用 bill を作成 */
@@ -258,7 +261,7 @@ export async function createTestMiraiStance(
     comment: "テストコメント",
     ...overrides,
   };
-  const { data, error } = await adminClient
+  const { data, error } = await rawAdminClient
     .from("mirai_stances")
     .insert(defaults)
     .select()
@@ -281,7 +284,7 @@ export async function createTestPreviewToken(
     expires_at: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(),
     ...overrides,
   };
-  const { data, error } = await adminClient
+  const { data, error } = await rawAdminClient
     .from("preview_tokens")
     .insert(defaults)
     .select()
@@ -301,7 +304,7 @@ export async function createTestInterviewMessages(
     content: `テストメッセージ ${i + 1}`,
   }));
 
-  const { data, error } = await adminClient
+  const { data, error } = await rawAdminClient
     .from("interview_messages")
     .insert(messages)
     .select();
