@@ -12,7 +12,7 @@ export const allBillStatuses: BillStatusEnum[] = [
   "rejected",
   "consented",
   "continued",
-];
+] as unknown as BillStatusEnum[];
 
 export function createMockBillContent(
   overrides: Partial<BillContent> = {}
