@@ -1,13 +1,3 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "regions": [
-    "hnd1"
-  ],
-  "git": {
-    "deploymentEnabled": {
-      "main": false,
-      "develop": false
-    }
-  },
-  "ignoreCommand": "node ../scripts/vercel-ignore-build.mjs"
+  "regions": ["hnd1"]
 }
