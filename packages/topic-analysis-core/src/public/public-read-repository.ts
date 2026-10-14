@@ -24,7 +24,7 @@ async function fetchAnalysisData(
   version: { id: string; version: number; completed_at: string | null },
   billId: string
 ): Promise<PublishedAnalysisData> {
-  const supabase = createAdminClient();
+  const supabase = createAdminClient() as any;
   const { data: topics, error: topicsError } = await supabase
     .from("topic")
     .select(
@@ -110,7 +110,7 @@ async function fetchAnalysisData(
 export async function findPublishedAnalysis(
   billId: string
 ): Promise<PublishedAnalysisData | null> {
-  const supabase = createAdminClient();
+  const supabase = createAdminClient() as any;
   // bill ごと公開は最大1版（one_published_per_bill）。
   const { data: version, error } = await supabase
     .from("topic_analysis_version")
@@ -133,7 +133,7 @@ export async function findPublishedAnalysis(
 export async function findLatestAnalysis(
   billId: string
 ): Promise<PublishedAnalysisData | null> {
-  const supabase = createAdminClient();
+  const supabase = createAdminClient() as any;
   const { data: version, error } = await supabase
     .from("topic_analysis_version")
     .select("id, version, completed_at")
@@ -173,7 +173,7 @@ export async function findRespondentRows(
   billId: string,
   filter: ReportRowFilter = {}
 ): Promise<RawRespondentRow[]> {
-  const supabase = createAdminClient();
+  const supabase = createAdminClient() as any;
   let query = supabase
     .from("interview_report")
     .select(
@@ -240,7 +240,7 @@ export async function findRespondentDetail(
   reportId: string,
   filter: RespondentDetailFilter = {}
 ): Promise<RespondentDetailData | null> {
-  const supabase = createAdminClient();
+  const supabase = createAdminClient() as any;
 
   let query = supabase
     .from("interview_report")
