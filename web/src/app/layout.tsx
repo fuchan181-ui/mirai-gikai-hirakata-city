@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
-import { Lexend_Giga, Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
+import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import type { ReactNode } from "react";
 import { ThemeProvider } from "@/components/theme/theme-provider";
@@ -12,19 +12,23 @@ const notoSansJP = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
   subsets: ["latin"],
   weight: ["400", "500", "700"],
+  display: "swap",
+  preload: false,
 });
 
-const lexendGiga = Lexend_Giga({
-  variable: "--font-lexend-giga",
-  subsets: ["latin"],
-  weight: ["400", "500", "700", "800", "900"],
-});
+// Lexend Giga はビルド時の Google Fonts 解決エラー（module-not-found）を防ぐため、
+// 安全なシステムフォント fallback を備えたローカル定義とし、head の link で補完します。
+const lexendGiga = {
+  variable: "font-lexend",
+};
 
 // トピックの代表意見など、引用文を明朝体で表示するために使用
 const notoSerifJP = Noto_Serif_JP({
   variable: "--font-noto-serif-jp",
   subsets: ["latin"],
   weight: ["500", "600"],
+  display: "swap",
+  preload: false,
 });
 
 const siteTitle = SITE_NAME;
@@ -53,9 +57,7 @@ export const metadata: Metadata = {
     "解説",
   ],
   icons: {
-    icon: [
-      { url: "/favicon.png", type: "image/png" },
-    ],
+    icon: [{ url: "/favicon.png", type: "image/png" }],
     apple: "/favicon.png",
   },
   manifest: "/manifest.json",
@@ -100,6 +102,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@400;700;800;900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body
         className={`${notoSansJP.variable} ${lexendGiga.variable} ${notoSerifJP.variable} font-sans antialiased bg-mirai-surface-light`}
       >

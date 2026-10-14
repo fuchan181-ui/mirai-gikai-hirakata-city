@@ -136,7 +136,7 @@
 /* Next.js font variables are defined on body and must resolve at use time. */
 @theme inline {
   --font-sans: var(--font-noto-sans-jp);
-  --font-lexend: var(--font-lexend-giga);
+  --font-lexend: "Lexend Giga", var(--font-lexend-giga, system-ui), sans-serif;
   --font-mirai-serif: var(--font-noto-serif-jp);
 }
 
@@ -348,11 +348,7 @@
   }
 
   .bg-footer-gradient {
-    background-image: linear-gradient(
-      180deg,
-      #ffe3e9 0%,
-      #fcfafb 100%
-    );
+    background-image: linear-gradient(180deg, #ffe3e9 0%, #fcfafb 100%);
   }
 
   .bg-mirai-white-fade {
@@ -445,7 +441,9 @@ button {
 }
 
 #nprogress .peg {
-  box-shadow: 0 0 10px #f4a8b9, 0 0 5px #f4a8b9 !important;
+  box-shadow:
+    0 0 10px #f4a8b9,
+    0 0 5px #f4a8b9 !important;
 }
 
 /* スクロールは保持しつつスクロールバーを非表示にするユーティリティ。 */
