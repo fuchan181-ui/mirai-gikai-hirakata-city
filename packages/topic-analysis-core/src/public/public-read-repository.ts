@@ -50,7 +50,7 @@ async function fetchAnalysisData(
     };
   }
 
-  const rawTopics: RawTopicRow[] = (topics ?? []).map((t) => {
+  const rawTopics: RawTopicRow[] = (topics ?? []).map((t: any) => {
     const opinions: RawOpinionRow[] = [];
     for (const link of t.topic_opinion ?? []) {
       const o = link.interview_opinion as unknown as
@@ -196,7 +196,7 @@ export async function findRespondentRows(
     return [];
   }
 
-  return (data ?? []).map((r) => ({
+  return (data ?? []).map((r: any) => ({
     id: r.id,
     role: r.role,
     role_title: r.role_title,
