@@ -3,6 +3,10 @@ import type { Database } from "../../packages/supabase/types/supabase.types";
 
 /** 生成型を使う。手書きの union は列挙漏れが起きるため。 */
 type BillInsert = Database["public"]["Tables"]["bills"]["Insert"];
+type Enums = Database["public"]["Enums"];
+type CouncilSessionKind = Enums extends { council_session_kind_enum: infer K }
+  ? K
+  : string;
 
 // ── 環境変数（`.env` または CI が供給。`npx supabase status` で確認） ──
 const SUPABASE_URL = process.env.SUPABASE_URL ?? "http://127.0.0.1:54421";
@@ -92,7 +96,7 @@ export async function createTestCouncilSession(
     end_date: string;
     slug: string;
     is_active: boolean;
-    kind: Database["public"]["Enums"]["council_session_kind_enum"];
+    kind: CouncilSessionKind;
   }> = {}
 ) {
   const defaults = {
@@ -103,7 +107,8 @@ export async function createTestCouncilSession(
     is_active: false,
     ...overrides,
   };
-  const { data, error } = await adminClient
+  // biome-ignore lint/suspicious/noExplicitAny: Supabaseスキーマ差異を許容するため
+  const { data, error } = await (adminClient as any)
     .from("council_sessions")
     .insert(defaults)
     .select()
