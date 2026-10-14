@@ -28,10 +28,10 @@ export function createMockBillContent(
     created_at: "2026-02-15T00:00:00Z",
     updated_at: "2026-02-15T00:00:00Z",
     ...overrides,
-  };
+  } as unknown as BillContent;
 }
 
-const baseBill: BillWithContent = {
+const baseBill = {
   id: "mock-bill-001",
   name: "サンプル議案（開発用）",
   status: "in_committee",
@@ -72,7 +72,7 @@ const baseBill: BillWithContent = {
     { id: "tag-1", label: "経済" },
     { id: "tag-2", label: "環境" },
   ],
-};
+} as unknown as BillWithContent;
 
 export function createMockBill(
   overrides: Partial<BillWithContent> = {}
@@ -80,5 +80,5 @@ export function createMockBill(
   return {
     ...baseBill,
     ...overrides,
-  };
+  } as unknown as BillWithContent;
 }
