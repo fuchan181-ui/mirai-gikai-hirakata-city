@@ -18,10 +18,18 @@ export type InterviewReport =
 export type InterviewReportInsert =
   Database["public"]["Tables"]["interview_report"]["Insert"];
 
-export type InterviewOpinion =
-  Database["public"]["Tables"]["interview_opinion"]["Row"];
-export type InterviewOpinionInsert =
-  Database["public"]["Tables"]["interview_opinion"]["Insert"];
+type Tables = Database["public"]["Tables"];
+
+export type InterviewOpinion = Tables extends {
+  interview_opinion: { Row: infer R };
+}
+  ? R
+  : Record<string, unknown>;
+export type InterviewOpinionInsert = Tables extends {
+  interview_opinion: { Insert: infer I };
+}
+  ? I
+  : Record<string, unknown>;
 
 export type InterviewQuestion =
   Database["public"]["Tables"]["interview_questions"]["Row"];

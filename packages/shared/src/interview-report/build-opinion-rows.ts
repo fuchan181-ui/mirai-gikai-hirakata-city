@@ -3,8 +3,29 @@ import { normalizeRichnessScore } from "../content-richness/normalize-richness-s
 import { normalizeReasoningTypes } from "./opinion-tags";
 import type { InterviewOpinionSource } from "./schema";
 
+type Tables = Database["public"]["Tables"];
+
 export type InterviewOpinionInsert =
-  Database["public"]["Tables"]["interview_opinion"]["Insert"];
+  Tables extends { interview_opinion: { Insert: infer T } }
+    ? T
+    : {
+        id?: string;
+        interview_report_id: string;
+        opinion_index: number;
+        title: string;
+        content: string;
+        source_message_id?: string | null;
+        contextual_quote?: string | null;
+        bill_sentiment?: string | null;
+        richness?: number | null;
+        concern?: string | null;
+        proposal?: string | null;
+        reasoning_types?: string[] | null;
+        tags_extracted_at?: string | null;
+        created_at?: string;
+        updated_at?: string;
+        [key: string]: unknown;
+      };
 
 export type BuildOpinionRowsOptions = {
   /**

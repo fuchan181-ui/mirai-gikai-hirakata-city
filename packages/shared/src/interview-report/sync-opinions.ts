@@ -19,7 +19,7 @@ export async function syncInterviewOpinions(
   const supabase = createAdminClient();
 
   if (rows.length > 0) {
-    const { error } = await supabase
+    const { error } = await (supabase as any)
       .from("interview_opinion")
       .upsert(rows, { onConflict: "interview_report_id,opinion_index" });
     if (error) {
@@ -28,7 +28,7 @@ export async function syncInterviewOpinions(
   }
 
   // 意見数が縮んだ（または0になった）場合に末尾の古い行を削除
-  const { error: deleteError } = await supabase
+  const { error: deleteError } = await (supabase as any)
     .from("interview_opinion")
     .delete()
     .eq("interview_report_id", reportId)
