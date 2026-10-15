@@ -15,7 +15,7 @@ export function DesktopMenuLogo() {
       {/* ロゴ */}
       <div className="relative w-[100px] h-[100px]">
         <Image
-          src="/img/logo.png"
+          src="/img/header-logo.png"
           alt={`${SITE_NAME}ロゴ`}
           fill
           className="object-contain"

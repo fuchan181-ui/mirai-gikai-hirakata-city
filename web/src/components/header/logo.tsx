@@ -15,7 +15,7 @@ export function HeaderLogo() {
       aria-label="ホーム"
     >
       <Image
-        src="/img/logo.png"
+        src="/img/header-logo.png"
         alt={SITE_NAME}
         width={38}
         height={38}
@@ -26,4 +26,3 @@ export function HeaderLogo() {
     </Link>
   );
 }
-
