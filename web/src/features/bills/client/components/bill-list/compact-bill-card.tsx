@@ -46,13 +46,11 @@ export function CompactBillCard({ bill, className }: CompactBillCardProps) {
         </div>
 
         {/* サムネイル画像 */}
-        {bill.thumbnail_url && (
-          <BillThumbnail
-            bill={bill}
-            className="w-24 h-16 flex-shrink-0 self-center mr-4 rounded-lg"
-            sizes="96px"
-          />
-        )}
+        <BillThumbnail
+          bill={bill}
+          className="w-24 h-16 flex-shrink-0 self-center mr-4 rounded-lg"
+          sizes="96px"
+        />
       </div>
     </Card>
   );

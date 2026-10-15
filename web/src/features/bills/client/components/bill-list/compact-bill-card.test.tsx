@@ -116,7 +116,7 @@ describe("CompactBillCard", () => {
     expect(screen.queryByText(DATE_LINE)).not.toBeInTheDocument();
   });
 
-  it("サムネイルが未設定ならサムネイル画像を出さない", () => {
+  it("サムネイルが未設定なら分野タグのイラストを装飾として出す", () => {
     const { container } = render(
       <CompactBillCard
         bill={createMockBill({
@@ -127,7 +127,15 @@ describe("CompactBillCard", () => {
       />
     );
 
-    expect(container.querySelector("img")).not.toBeInTheDocument();
+    expect(thumbnailSrc(container)).toContain(
+      "/img/bill-thumbnails/disaster.webp"
+    );
+    // 見出しが正式名称を読むので、画像には名前を付けない。
+    expect(
+      screen.queryByRole("img", {
+        name: "沼津市国民健康保険税条例の一部を改正する条例",
+      })
+    ).not.toBeInTheDocument();
   });
 
   it("アップロード済みのサムネイルはタグより優先し、同じく装飾として出す", () => {

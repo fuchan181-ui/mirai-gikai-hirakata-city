@@ -20,9 +20,7 @@ export function BillCard({ bill }: BillCardProps) {
       <div className="flex flex-col">
         {/* 注目バッジエリア */}
         {bill.is_featured && (
-          <div
-            className={`${bill.thumbnail_url != null ? "absolute" : "relative"} top-3 left-3 z-1`}
-          >
+          <div className="absolute top-3 left-3 z-1">
             <span className="inline-flex items-center justify-center px-3 py-0.5 text-xs font-medium text-mirai-text bg-mirai-highlight rounded-[20px]">
               注目🔥
             </span>
@@ -30,13 +28,11 @@ export function BillCard({ bill }: BillCardProps) {
         )}
 
         {/* サムネイル画像 */}
-        {bill.thumbnail_url && (
-          <BillThumbnail
-            bill={bill}
-            className="w-full h-52 md:h-65"
-            sizes="(min-width: 640px) 634px, 100vw"
-          />
-        )}
+        <BillThumbnail
+          bill={bill}
+          className="w-full h-52 md:h-65"
+          sizes="(min-width: 640px) 634px, 100vw"
+        />
 
         {/* コンテンツエリア */}
         <div className="flex-1">

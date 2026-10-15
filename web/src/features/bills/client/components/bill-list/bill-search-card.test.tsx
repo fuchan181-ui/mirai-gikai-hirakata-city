@@ -85,7 +85,7 @@ describe("BillSearchCard", () => {
     expect(thumbnail).toBeInTheDocument();
   });
 
-  it("サムネイルが未設定ならサムネイル画像を出さない", () => {
+  it("サムネイルが未設定なら分野タグのイラストを出す", () => {
     const { container } = render(
       <BillSearchCard
         bill={createMockBill({
@@ -95,7 +95,9 @@ describe("BillSearchCard", () => {
       />
     );
 
-    expect(container.querySelector("img")).not.toBeInTheDocument();
+    expect(thumbnailSrc(container)).toContain(
+      "/img/bill-thumbnails/disaster.webp"
+    );
   });
 
   it("提出日があるときだけ日付を出す", () => {
