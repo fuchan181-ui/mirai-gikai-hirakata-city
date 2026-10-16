@@ -12,7 +12,7 @@ vi.mock("next-themes", () => ({
 }));
 
 beforeEach(() => {
-  document.head.innerHTML = '<meta name="theme-color" content="#be3b63">';
+  document.head.innerHTML = '<meta name="theme-color" content="#fa9db0">';
 });
 
 describe("ThemeProvider", () => {
@@ -26,6 +26,20 @@ describe("ThemeProvider", () => {
         document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')
           ?.content
       ).toBe("#181214");
+    });
+  });
+
+  it("選択中のライトテーマをブラウザUIの色にも反映する", async () => {
+    document.head.innerHTML = '<meta name="theme-color" content="#181214">';
+    useThemeMock.mockReturnValue({ resolvedTheme: "light" });
+
+    render(<ThemeProvider>content</ThemeProvider>);
+
+    await waitFor(() => {
+      expect(
+        document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')
+          ?.content
+      ).toBe("#fa9db0");
     });
   });
 });
