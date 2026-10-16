@@ -38,11 +38,6 @@ const siteName = SITE_NAME;
 
 // OGP画像およびmetadataBaseの基準URL（本番環境URLをフォールバックとして確実に保証）
 const baseSiteUrl =
-  env.webUrl && !env.webUrl.includes("localhost") ? env.webUrl : siteConfig.url;
-
-
-// OGP画像およびmetadataBaseの基準URL（本番環境URLをフォールバックとして確実に保証）
-const baseSiteUrl =
   env.webUrl && !env.webUrl.includes("localhost")
     ? env.webUrl
     : siteConfig.url;
