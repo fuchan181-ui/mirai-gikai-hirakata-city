@@ -13,7 +13,6 @@ import {
 } from "../../../client/components/bill-detail/review-status-banner";
 import { BillStatusBadge } from "../../../client/components/bill-list/bill-status-badge";
 import { BillTag } from "../../../client/components/bill-list/bill-tag";
-import { BillThumbnail } from "../../../client/components/bill-thumbnail";
 import { getBillShareData } from "../../../client/utils/share";
 import type { BillWithContent } from "../../../shared/types";
 
@@ -39,14 +38,7 @@ export async function BillDetailHeader({
 
   return (
     <div className="mb-8 bg-card rounded-b-4xl">
-      <BillThumbnail
-        bill={bill}
-        className="w-full h-72 md:h-80"
-        sizes="(min-width: 896px) 896px, 100vw"
-        priority
-      />
-
-      <div className="px-4 pt-8 mb-3">
+      <div className="px-4 pt-20 md:pt-8 mb-3">
         {displayTitle && (
           <h1 className="text-2xl font-bold mb-3">
             {displayTitle}
