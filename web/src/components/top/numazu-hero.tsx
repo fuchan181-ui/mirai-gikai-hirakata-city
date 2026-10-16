@@ -16,7 +16,7 @@ export function NumazuHero() {
     <Container className="pt-24 md:pt-6">
       <section
         aria-labelledby="hero-heading"
-        className="overflow-hidden rounded-3xl border border-[#f5e3e7] bg-[#fff5f7] px-6 py-8 sm:px-10 sm:py-10"
+        className="overflow-hidden rounded-3xl border border-[#f5e3e7] dark:border-[#38252b] bg-[#fff5f7] dark:bg-[#251b1f] px-6 py-8 sm:px-10 sm:py-10"
       >
         <div className="flex flex-col items-start justify-center max-w-2xl">
           <p className="mb-2 text-xs font-bold tracking-widest text-primary-accent">

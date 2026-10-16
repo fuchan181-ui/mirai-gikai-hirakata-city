@@ -29,10 +29,7 @@ export function HeaderClient({ difficultyLevel }: HeaderClientProps) {
 
   return (
     <header className="px-3 fixed top-4 left-0 right-0 z-40 max-w-[1440px] mx-auto">
-      <div
-        className="rounded-2xl bg-[#ffe3e9] shadow-sm mx-auto px-4 sm:px-6 lg:px-8"
-        style={{ backgroundColor: "#ffe3e9" }}
-      >
+      <div className="rounded-2xl bg-[#fdf0f3] dark:bg-[#251b1f] border border-[#f5e3e7] dark:border-[#38252b] shadow-sm mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between xl:grid xl:grid-cols-[minmax(0,1fr)_auto_minmax(0,1fr)]">
           {/* Logo / Site Title */}
           <div className="flex items-center">

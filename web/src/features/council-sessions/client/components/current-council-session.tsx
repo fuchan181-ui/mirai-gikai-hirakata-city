@@ -29,7 +29,7 @@ export function CurrentCouncilSession({
   // 枚方の紹介ヒーローに続けて表示するため、画面幅によらず同じ余白にする。
   return (
     <Container className="pt-5">
-      <div className="flex flex-col gap-6 rounded-2xl border border-[#f5e3e7] bg-mirai-light-gradient px-5 py-5">
+      <div className="flex flex-col gap-6 rounded-2xl border border-[#f5e3e7] dark:border-[#38252b] bg-mirai-light-gradient px-5 py-5">
         {/*
           紹介ヒーローの主見出しに続く、会期状況セクションの見出し。
 

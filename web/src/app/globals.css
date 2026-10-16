@@ -233,6 +233,7 @@
   --color-mirai-border: #634b52;
   --color-mirai-border-light: #7a5e66;
   --color-mirai-border-muted: #543f45;
+  --color-mirai-footer-text: #edd5dc;
   --color-stance-for-bg: #3d1c25;
   --color-stance-for-badge-start: #4f2230;
   --color-stance-for-badge-end: #3b222a;
@@ -349,6 +350,10 @@
 
   .bg-footer-gradient {
     background-image: linear-gradient(180deg, #ffe3e9 0%, #fcfafb 100%);
+  }
+
+  .dark .bg-footer-gradient {
+    background-image: linear-gradient(180deg, #251b1f 0%, #181214 100%);
   }
 
   .bg-mirai-white-fade {

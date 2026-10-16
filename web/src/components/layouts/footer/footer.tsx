@@ -18,12 +18,7 @@ export function Footer() {
   }
 
   return (
-    <footer
-      className="bg-footer-gradient text-mirai-footer-text border-t border-[#f5e3e7]"
-      style={{
-        backgroundImage: "linear-gradient(180deg, #ffe3e9 0%, #fcfafb 100%)",
-      }}
-    >
+    <footer className="bg-footer-gradient text-mirai-footer-text border-t border-[#f5e3e7] dark:border-[#38252b]">
       <div className="mx-auto flex w-full max-w-[500px] flex-col items-center px-6 py-14 pb-20 text-center">
         <FooterLogoSection />
         <FooterPrimaryLinks />

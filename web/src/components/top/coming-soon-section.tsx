@@ -28,7 +28,7 @@ export function ComingSoonSection({ bills }: ComingSoonSectionProps) {
 
       {/* Coming soonカードリスト */}
       {bills.length === 0 ? (
-        <Card className="border border-[#f5e3e7] bg-[#fff5f7]">
+        <Card className="border border-[#f5e3e7] dark:border-[#38252b] bg-[#fff5f7] dark:bg-[#251b1f]">
           <CardContent className="flex items-center justify-center py-20">
             <p className="text-2xl font-bold text-mirai-text-muted">
               Coming soon
@@ -70,9 +70,9 @@ function ComingSoonBillCard({ bill }: { bill: ComingSoonBill }) {
 
   const content = (
     <Card
-      className={`border border-[#f5e3e7] bg-[#fff5f7] ${
+      className={`border border-[#f5e3e7] dark:border-[#38252b] bg-[#fff5f7] dark:bg-[#251b1f] ${
         bill.source_url
-          ? "hover:bg-[#ffeef2] transition-colors cursor-pointer"
+          ? "hover:bg-[#ffeef2] dark:hover:bg-[#2d2025] transition-colors cursor-pointer"
           : ""
       }`}
     >

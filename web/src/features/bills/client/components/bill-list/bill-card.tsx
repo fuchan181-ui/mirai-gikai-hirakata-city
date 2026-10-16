@@ -15,7 +15,7 @@ export function BillCard({ bill }: BillCardProps) {
   const summary = bill.bill_content?.summary;
 
   return (
-    <Card className="border border-[#f5e3e7] bg-[#fff5f7] shadow-none hover:bg-[#ffeef2] transition-colors relative overflow-hidden max-w-[634px]">
+    <Card className="border border-[#f5e3e7] dark:border-[#38252b] bg-[#fff5f7] dark:bg-[#251b1f] shadow-none hover:bg-[#ffeef2] dark:hover:bg-[#2d2025] transition-colors relative overflow-hidden max-w-[634px]">
       <div className="flex flex-col">
         {/* コンテンツエリア */}
         <div className="flex-1">

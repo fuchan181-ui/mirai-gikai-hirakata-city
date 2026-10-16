@@ -48,7 +48,7 @@ export function MobileChatDialog({
         <DialogPrimitive.Content
           aria-describedby={undefined}
           aria-modal="true"
-          className={`fixed inset-x-0 bottom-0 z-50 h-[80vh] bg-[#fff5f7] border border-[#f5e3e7] shadow-md rounded-t-2xl flex flex-col outline-none ${CHAT_PANEL_RESPONSIVE_CLASSES}`}
+          className={`fixed inset-x-0 bottom-0 z-50 h-[80vh] bg-[#fff5f7] dark:bg-[#251b1f] border border-[#f5e3e7] dark:border-[#38252b] shadow-md rounded-t-2xl flex flex-col outline-none ${CHAT_PANEL_RESPONSIVE_CLASSES}`}
           style={style}
           onOpenAutoFocus={(event) => {
             event.preventDefault();

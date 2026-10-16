@@ -19,7 +19,7 @@ export function CompactBillCard({ bill, className }: CompactBillCardProps) {
 
   return (
     <Card
-      className={`border border-[#f5e3e7] bg-[#fff5f7] shadow-none hover:bg-[#ffeef2] transition-colors overflow-hidden ${className ?? ""}`}
+      className={`border border-[#f5e3e7] dark:border-[#38252b] bg-[#fff5f7] dark:bg-[#251b1f] shadow-none hover:bg-[#ffeef2] dark:hover:bg-[#2d2025] transition-colors overflow-hidden ${className ?? ""}`}
     >
       <div className="p-4 flex flex-col gap-2">
         <h3 className="font-bold text-[15px] leading-[1.6] line-clamp-2">
