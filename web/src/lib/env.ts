@@ -54,8 +54,27 @@ if (
   );
 }
 
+const defaultProductionWebUrl =
+  "https://mirai-gikai-hirakata-city-web-three.vercel.app";
+
+const resolveWebUrl = (): string => {
+  if (process.env.NEXT_PUBLIC_WEB_URL) {
+    return process.env.NEXT_PUBLIC_WEB_URL;
+  }
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+  if (process.env.NODE_ENV === "production") {
+    return defaultProductionWebUrl;
+  }
+  return "http://localhost:3000";
+};
+
 export const env = {
-  webUrl: process.env.NEXT_PUBLIC_WEB_URL || "http://localhost:3000",
+  webUrl: resolveWebUrl(),
   adminUrl: process.env.ADMIN_URL || "http://localhost:3001",
   supabaseUrl: process.env.NEXT_PUBLIC_SUPABASE_URL,
   supabasePublishableKey: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,

@@ -4,6 +4,7 @@ import { Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
 import type { ReactNode } from "react";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { siteConfig } from "@/config/site.config";
 import { env } from "@/lib/env";
 import { ogImageUrls } from "@/lib/og/og-image-urls";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_PROFILE } from "@/lib/site";
@@ -34,16 +35,28 @@ const notoSerifJP = Noto_Serif_JP({
 const siteTitle = SITE_NAME;
 const siteDescription = SITE_DESCRIPTION;
 const siteName = SITE_NAME;
+
+// OGP画像およびmetadataBaseの基準URL（本番環境URLをフォールバックとして確実に保証）
+const baseSiteUrl =
+  env.webUrl && !env.webUrl.includes("localhost") ? env.webUrl : siteConfig.url;
+
+
+// OGP画像およびmetadataBaseの基準URL（本番環境URLをフォールバックとして確実に保証）
+const baseSiteUrl =
+  env.webUrl && !env.webUrl.includes("localhost")
+    ? env.webUrl
+    : siteConfig.url;
+
 // サイト全体のOGP画像（静的アイキャッチ画像 /ogp.png）
 const ogImage = {
-  url: ogImageUrls.site(env.webUrl),
+  url: ogImageUrls.site(baseSiteUrl),
   width: 1200,
   height: 630,
   alt: `${SITE_NAME}のOGPイメージ`,
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(env.webUrl),
+  metadataBase: new URL(baseSiteUrl),
   title: siteTitle,
   description: siteDescription,
   keywords: [
