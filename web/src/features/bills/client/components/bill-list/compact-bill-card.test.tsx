@@ -6,7 +6,6 @@ import {
   createMockBill,
   createMockBillContent,
 } from "@/app/dev/_lib/mock-data";
-import { thumbnailSrc } from "@/test-utils/thumbnail-src";
 import { CompactBillCard } from "./compact-bill-card";
 
 /** 日付の行だけを狙う。行全体に一致させて、ステータスバッジの文言と混ざらないようにする。 */
@@ -116,7 +115,7 @@ describe("CompactBillCard", () => {
     expect(screen.queryByText(DATE_LINE)).not.toBeInTheDocument();
   });
 
-  it("サムネイルが未設定なら分野タグのイラストを装飾として出す", () => {
+  it("サムネイル画像を出さない", () => {
     const { container } = render(
       <CompactBillCard
         bill={createMockBill({
@@ -127,33 +126,6 @@ describe("CompactBillCard", () => {
       />
     );
 
-    expect(thumbnailSrc(container)).toContain(
-      "/img/bill-thumbnails/disaster.webp"
-    );
-    // 見出しが正式名称を読むので、画像には名前を付けない。
-    expect(
-      screen.queryByRole("img", {
-        name: "沼津市国民健康保険税条例の一部を改正する条例",
-      })
-    ).not.toBeInTheDocument();
-  });
-
-  it("アップロード済みのサムネイルはタグより優先し、同じく装飾として出す", () => {
-    const { container } = render(
-      <CompactBillCard
-        bill={createMockBill({
-          name: "沼津市国民健康保険税条例の一部を改正する条例",
-          thumbnail_url: "https://example.com/thumb.png",
-          tags: [{ id: "tag-safety", label: "防災・安全" }],
-        })}
-      />
-    );
-
-    expect(thumbnailSrc(container)).toContain("https://example.com/thumb.png");
-    expect(
-      screen.queryByRole("img", {
-        name: "沼津市国民健康保険税条例の一部を改正する条例",
-      })
-    ).not.toBeInTheDocument();
+    expect(container.querySelector("img")).not.toBeInTheDocument();
   });
 });

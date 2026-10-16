@@ -1,4 +1,5 @@
 import { ExternalLink } from "lucide-react";
+import Image from "next/image";
 import type { BillWithContent } from "@/features/bills/shared/types";
 import { SITE_PROFILE } from "@/lib/site";
 import type { CouncilSession } from "../../shared/types";
@@ -17,15 +18,30 @@ export function CouncilSessionBillList({ session, bills }: Props) {
   return (
     <div className="flex flex-col gap-8">
       {/* Archiveヘッダー */}
-      <div className="flex flex-col gap-1">
-        <h1>
-          <span className="font-lexend text-[32px] leading-none font-bold tracking-tight text-mirai-text">
-            Archive
-          </span>
-        </h1>
-        <p className="text-sm font-bold text-primary-accent">
-          過去の定例会に提出された議案
-        </p>
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-1">
+          <h1>
+            <span className="font-lexend text-[32px] leading-none font-bold tracking-tight text-mirai-text">
+              Archive
+            </span>
+          </h1>
+          <p className="text-sm font-bold text-primary-accent">
+            過去の定例会に提出された議案
+          </p>
+        </div>
+
+        {/* バナー画像 */}
+        <div className="w-full overflow-hidden rounded-2xl border border-mirai-border bg-mirai-surface-light">
+          <Image
+            src="/img/archive-hero.png"
+            alt="過去の定例会に提出された議案"
+            width={3680}
+            height={1152}
+            priority
+            className="w-full h-auto block"
+            sizes="(min-width: 768px) 634px, 100vw"
+          />
+        </div>
       </div>
 
       {/* セクションヘッダー */}

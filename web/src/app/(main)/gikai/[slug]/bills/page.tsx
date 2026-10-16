@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/layouts/container";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
@@ -38,20 +37,7 @@ export default async function CouncilSessionBillsPage({ params }: Props) {
 
   return (
     <div className="bg-background">
-      {/* ヒーロー画像 */}
-      <div className="w-full bg-[#fff5f7] border-b border-[#f5e3e7]">
-        <Image
-          src="/img/archive-hero.png"
-          alt={`${session.name}の議案一覧`}
-          width={3680}
-          height={1152}
-          priority
-          className="w-full h-auto block"
-          sizes="100vw"
-        />
-      </div>
-
-      <Container className="py-8">
+      <Container className="pt-24 pb-8 md:pt-8">
         <CouncilSessionBillList session={session} bills={bills} />
       </Container>
 

@@ -6,7 +6,6 @@ import {
   createMockBill,
   createMockBillContent,
 } from "@/app/dev/_lib/mock-data";
-import { thumbnailSrc } from "@/test-utils/thumbnail-src";
 import { BillSearchCard } from "./bill-search-card";
 
 describe("BillSearchCard", () => {
@@ -68,24 +67,7 @@ describe("BillSearchCard", () => {
     expect(screen.queryByText("税金を下げます。")).not.toBeInTheDocument();
   });
 
-  /*
-    サムネイルはリンクの中の飾りなので alt を空にしている。読み上げは見出しの
-    タイトルが担う。同じ内容を二度読ませない。
-  */
-  it("アップロード済みのサムネイルも読み上げ対象にしない", () => {
-    const { container } = render(
-      <BillSearchCard
-        bill={createMockBill({
-          thumbnail_url: "https://example.com/thumb.png",
-        })}
-      />
-    );
-
-    const thumbnail = container.querySelector('img[alt=""]');
-    expect(thumbnail).toBeInTheDocument();
-  });
-
-  it("サムネイルが未設定なら分野タグのイラストを出す", () => {
+  it("サムネイル画像を出さない", () => {
     const { container } = render(
       <BillSearchCard
         bill={createMockBill({
@@ -95,9 +77,7 @@ describe("BillSearchCard", () => {
       />
     );
 
-    expect(thumbnailSrc(container)).toContain(
-      "/img/bill-thumbnails/disaster.webp"
-    );
+    expect(container.querySelector("img")).not.toBeInTheDocument();
   });
 
   it("提出日があるときだけ日付を出す", () => {

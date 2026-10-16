@@ -3,7 +3,6 @@ import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { formatDateWithDots } from "@/lib/utils/date";
 import type { BillWithContent } from "../../../shared/types";
 import { ReviewCompleteBadge } from "../bill-detail/review-status-banner";
-import { BillThumbnail } from "../bill-thumbnail";
 import { BillStatusBadge } from "./bill-status-badge";
 import { BillTag } from "./bill-tag";
 
@@ -18,26 +17,18 @@ export function BillCard({ bill }: BillCardProps) {
   return (
     <Card className="border border-[#f5e3e7] bg-[#fff5f7] shadow-none hover:bg-[#ffeef2] transition-colors relative overflow-hidden max-w-[634px]">
       <div className="flex flex-col">
-        {/* 注目バッジエリア */}
-        {bill.is_featured && (
-          <div className="absolute top-3 left-3 z-1">
-            <span className="inline-flex items-center justify-center px-3 py-0.5 text-xs font-medium text-mirai-text bg-mirai-highlight rounded-[20px]">
-              注目🔥
-            </span>
-          </div>
-        )}
-
-        {/* サムネイル画像 */}
-        <BillThumbnail
-          bill={bill}
-          className="w-full h-52 md:h-65"
-          sizes="(min-width: 640px) 634px, 100vw"
-        />
-
         {/* コンテンツエリア */}
         <div className="flex-1">
           <CardHeader>
             <div className="flex flex-col gap-3">
+              {/* 注目バッジエリア */}
+              {bill.is_featured && (
+                <div>
+                  <span className="inline-flex items-center justify-center px-3 py-0.5 text-xs font-medium text-mirai-text bg-mirai-highlight rounded-[20px]">
+                    注目🔥
+                  </span>
+                </div>
+              )}
               <CardTitle className="text-2xl/8 tracking-normal">
                 {displayTitle}
                 {bill.is_review_completed && (

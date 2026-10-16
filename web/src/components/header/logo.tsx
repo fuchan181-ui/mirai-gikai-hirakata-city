@@ -16,10 +16,10 @@ export function HeaderLogo() {
     >
       <Image
         src="/img/header-logo.png"
-        alt={SITE_NAME}
+        alt={`${SITE_NAME}ロゴ`}
         width={38}
         height={38}
-        className="h-9 w-9 object-contain"
+        className="h-9 w-9 shrink-0 object-contain"
         priority
       />
       <SiteTitle />
